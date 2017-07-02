@@ -11,14 +11,10 @@ class App extends Component {
     }
   }
 
-  // updateMovies(movies){
-  //   this.setState({movies: movies});
-  // }
 
   componentWillMount() {
     axios.get('/api/movies').then(response => {
       this.setState({movies: response.data});
-      // this.updateMovies(response.data)
     }).catch(error => {
       console.error('error : ' + error)
     })
