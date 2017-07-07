@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
 import logo from './logo.png';
 import {Navbar, FormGroup, FormControl, Button} from 'react-bootstrap';
+import './TopBar.css'
 
 class TopBar extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
     return (
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">
+            <a href="/home">
               <img alt="Brand" src={logo}/>
             </a>
           </Navbar.Brand>
