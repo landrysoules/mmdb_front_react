@@ -6,13 +6,16 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bootstrap": "3",
+    "enzyme": "^2.9.1",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.6.1",
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "react-test-renderer": "^15.6.1"
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.9.0",
     "react-scripts": "1.0.7"
   },
   "scripts": {

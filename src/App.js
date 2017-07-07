@@ -11,33 +11,36 @@ class App extends Component {
     }
   }
 
-
-  componentWillMount() {
+  getMovies() {
     axios.get('/api/movies').then(response => {
       this.setState({movies: response.data});
     }).catch(error => {
       console.error('error : ' + error)
     })
+  }
+
+  componentWillMount() {
+    this.getMovies();
   };
   render() {
     return (
       <div className="App container-fluid">
-        <TopBar />
+        <TopBar/>
 
         <table>
           <tbody>
-          {this.state.movies.map(movie => {
-            if(movie.name){
-            return (
-              <tr key={movie._id.$oid}>
-                <td>{movie.name}</td>
-                <td>{movie.year}</td>
-              </tr>
-            )
-          }
-
-          })}
-        </tbody>
+            {this.state.movies.map(movie => {
+              if (movie.name) {
+                return (
+                  <tr key={movie._id.$oid}>
+                    <td>{movie.name}</td>
+                    <td>{movie.year}</td>
+                  </tr>
+                )
+              }
+              return ''
+            })}
+          </tbody>
         </table>
       </div>
     );
