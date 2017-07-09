@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.png';
-import {Navbar, FormGroup, FormControl, Button} from 'react-bootstrap';
-import './TopBar.css'
+import {Navbar} from 'react-bootstrap';
+import './TopBar.css';
+import Search from './Search';
 
 class TopBar extends Component {
 
@@ -17,13 +18,7 @@ class TopBar extends Component {
           <Navbar.Toggle/>
         </Navbar.Header>
         <Navbar.Collapse>
-          <Navbar.Form pullLeft>
-            <FormGroup>
-              <FormControl type="text" placeholder="Search"/>
-            </FormGroup>
-            {' '}
-            <Button type="submit">Submit</Button>
-          </Navbar.Form>
+          <Search/>
         </Navbar.Collapse>
       </Navbar>
     );
