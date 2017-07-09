@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios';
-import TopBar from './TopBar';
+import TopBar from './top_bar/TopBar';
 
 class App extends Component {
   constructor(props) {
@@ -22,26 +22,31 @@ class App extends Component {
   componentWillMount() {
     this.getMovies();
   };
+
   render() {
     return (
       <div className="App container-fluid">
-        <TopBar/>
+        <div className="col-lg-3"/>
+        <div className="col-lg-6">
+          <TopBar/>
 
-        <table>
-          <tbody>
-            {this.state.movies.map(movie => {
-              if (movie.name) {
-                return (
-                  <tr key={movie._id.$oid}>
-                    <td>{movie.name}</td>
-                    <td>{movie.year}</td>
-                  </tr>
-                )
-              }
-              return ''
-            })}
-          </tbody>
-        </table>
+          <table>
+            <tbody>
+              {this.state.movies.map(movie => {
+                if (movie.name) {
+                  return (
+                    <tr key={movie._id.$oid}>
+                      <td>{movie.name}</td>
+                      <td>{movie.year}</td>
+                    </tr>
+                  )
+                }
+                return ''
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div className="col-lg-3"/>
       </div>
     );
   }
