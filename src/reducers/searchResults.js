@@ -1,21 +1,28 @@
 import {SEARCH} from '../constants/action-types'
 const INITIAL_STATE = {
-  searchResults: {}
+  searchMovies: {
+    movies: [],
+    error: null,
+    loading: false
+  }
 }
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
 
     case `${SEARCH}_SUCCESS`:
+      console.debug('action success')
       return {
         ...state,
-        searchResults: {
-          searchResults: action.payload,
+        searchMovies: {
+          movies: action.payload.data.local_movies,
           error: null,
           loading: false
         }
       };
     default:
-      return state;
+      console.debug('default state')
+      console.debug(state)
+      return state
   }
 }

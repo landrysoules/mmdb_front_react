@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import TopBar from './top_bar/TopBar';
-import SearchResults from './search_results/SearchResults';
+import TopBarContainer from './top_bar/TopBarContainer';
+import SearchResultsContainer from './search_results/SearchResultsContainer';
 
 class App extends Component {
 
@@ -15,8 +15,8 @@ class App extends Component {
       <div className="App container-fluid">
         <div className="col-lg-3"/>
         <div className="col-lg-6">
-          <TopBar/>
-          <SearchResults/>
+          <TopBarContainer/>
+          <SearchResultsContainer/>
         </div>
         <div className="col-lg-3"/>
       </div>

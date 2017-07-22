@@ -1,26 +1,9 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React from 'react'
 
-class SearchResults extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: []
-    }
-  }
-
-  getMovies() {
-    axios.get('/api/movies').then(response => {
-      this.setState({movies: response.data});
-    }).catch(error => {
-      console.error('error : ' + error)
-    })
-  }
-  render() {
-    return (
+const SearchResults = ({moviz}) => (
           <table>
             <tbody>
-              {this.state.movies.map(movie => {
+              {moviz.map(movie => {
                 if (movie.name) {
                   return (
                     <tr key={movie._id.$oid}>
@@ -33,8 +16,6 @@ class SearchResults extends Component {
               })}
             </tbody>
           </table>
-    );
-  }
-}
+    )
 
 export default SearchResults;
