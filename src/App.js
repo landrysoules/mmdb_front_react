@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import TopBarContainer from './top_bar/TopBarContainer';
-import SearchResultsContainer from './search_results/SearchResultsContainer';
+import TopBar from './components/top_bar/TopBar';
+import SearchResultsContainer from './components/search_results/SearchResultsContainer';
 
 class App extends Component {
-
 
   // componentWillMount() {
   //   this.getMovies();
@@ -15,8 +14,12 @@ class App extends Component {
       <div className="App container-fluid">
         <div className="col-lg-3"/>
         <div className="col-lg-6">
-          <TopBarContainer/>
-          <SearchResultsContainer/>
+          <div className="row">
+            <TopBar/>
+          </div>
+          <div className="row">
+            <SearchResultsContainer/>
+          </div>
         </div>
         <div className="col-lg-3"/>
       </div>

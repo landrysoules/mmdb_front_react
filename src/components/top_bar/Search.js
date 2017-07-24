@@ -1,26 +1,27 @@
-import React, {Component} from 'react';
-import {Navbar, FormGroup, FormControl, Button} from 'react-bootstrap';
+import React from 'react'
+import {Component} from 'react'
+import {Navbar, FormControl, FormGroup, Button} from 'react-bootstrap'
 
 class Search extends Component {
+
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
-      search: ''
-    }
-    this.handleChange = this.handleChange.bind(this);
+      queryString: ''
+    };
+    this.onSearchChange = this.onSearchChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({search: e.target.value});
+  onSearchChange(event) {
+    this.setState({queryString: event.target.value});
   }
-
 
   render() {
     return (
-      <form onSubmit={this.props.onSearchClick(this.state.search)}>
+      <form onSubmit={ e => {this.props.onSearchClick(e, this.state.queryString)}}>
         <Navbar.Form pullLeft>
           <FormGroup>
-            <FormControl type="text" placeholder="Search" value={this.state.search} onChange={this.handleChange}/>
+            <FormControl type="text" placeholder="Search" value={this.state.queryString} onChange={ e => {this.onSearchChange(e)}}/>
           </FormGroup>
           {' '}
           <Button type="submit">
@@ -28,8 +29,7 @@ class Search extends Component {
           </Button>
         </Navbar.Form>
       </form>
-    );
+    )
   }
 }
-
 export default Search;

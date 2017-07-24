@@ -11,7 +11,6 @@ export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
 
     case `${SEARCH}_SUCCESS`:
-      console.debug('action success')
       return {
         ...state,
         searchMovies: {
@@ -19,10 +18,18 @@ export default function(state = INITIAL_STATE, action) {
           error: null,
           loading: false
         }
-      };
+      }
+    case `${SEARCH}_FAIL`:
+      return {
+        ...state,
+        searchMovies: {
+          movies: [],
+          error: action.error,
+          loading: false
+        }
+      }
+
     default:
-      console.debug('default state')
-      console.debug(state)
       return state
   }
 }
