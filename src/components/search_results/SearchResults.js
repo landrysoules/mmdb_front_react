@@ -1,8 +1,6 @@
 import React from 'react'
 
 const SearchResults = ({searchResults}) => {
-  console.debug('searchResults')
-  console.debug(searchResults)
   if (searchResults.searchMovies.error) {
     return (
       <h2>{searchResults.searchMovies.error.data}</h2>

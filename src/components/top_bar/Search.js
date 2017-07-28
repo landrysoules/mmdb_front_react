@@ -6,6 +6,8 @@ class Search extends Component {
 
   constructor(props) {
     super(props)
+    // queryString isn't important outside of this component, so let's put it
+    // in component's local state
     this.state = {
       queryString: ''
     };
