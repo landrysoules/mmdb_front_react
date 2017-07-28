@@ -1,28 +1,23 @@
-import React, {Component} from 'react';
+import React from 'react';
 import logo from './logo.png';
 import {Navbar} from 'react-bootstrap';
 import './TopBar.css';
-import Search from './Search';
+import SearchContainer from './SearchContainer';
 
-class TopBar extends Component {
-
-  render() {
-    return (
+const TopBar = () => (
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="/home">
-              <img alt="Brand" src={logo}/>
+              <img alt="mmdb" src={logo}/>
             </a>
           </Navbar.Brand>
           <Navbar.Toggle/>
         </Navbar.Header>
         <Navbar.Collapse>
-          <Search/>
+          <SearchContainer/>
         </Navbar.Collapse>
       </Navbar>
-    );
-  }
-}
+  )
 
 export default TopBar;

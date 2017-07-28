@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResults display error message when API returns an error 1`] = `
+<h2>
+  internal server error
+</h2>
+`;
