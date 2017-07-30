@@ -1,4 +1,5 @@
 import React from 'react'
+import ImdbResults from './ImdbResults'
 
 const SearchResults = ({searchResults}) => {
   if (searchResults.searchMovies.error) {
@@ -7,9 +8,12 @@ const SearchResults = ({searchResults}) => {
     )
   } else {
     return (
+      <div className="row">
+      <div className="col-lg-12">
+      <div className="row">
       <table>
         <tbody>
-          {searchResults.searchMovies.movies.map(movie => {
+          {searchResults.searchMovies.localMovies.map(movie => {
             if (movie.name) {
               return (
                 <tr key={movie._id.$oid}>
@@ -22,6 +26,11 @@ const SearchResults = ({searchResults}) => {
           })}
         </tbody>
       </table>
+    </div>
+    <ImdbResults movies={ searchResults.searchMovies.imdbMovies }/>
+  </div>
+  </div>
+
     )
   }
 }

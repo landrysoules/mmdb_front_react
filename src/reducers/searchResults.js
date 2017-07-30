@@ -1,7 +1,8 @@
 import {SEARCH} from '../constants/action-types'
 const INITIAL_STATE = {
   searchMovies: {
-    movies: [],
+    localMovies: [],
+    imdbMovies: [],
     error: null,
     loading: false
   }
@@ -14,7 +15,8 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         searchMovies: {
-          movies: action.payload.data.local_movies,
+          localMovies: action.payload.data.local_movies,
+          imdbMovies: action.payload.data.imdb_movies,
           error: null,
           loading: false
         }
@@ -23,7 +25,8 @@ export default function(state = INITIAL_STATE, action) {
       return {
         ...state,
         searchMovies: {
-          movies: [],
+          localMovies: [],
+          imdbMovies: [],
           error: action.error,
           loading: false
         }

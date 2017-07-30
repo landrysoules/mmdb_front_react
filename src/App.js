@@ -17,9 +17,7 @@ class App extends Component {
           <div className="row">
             <TopBar/>
           </div>
-          <div className="row">
             <SearchResultsContainer/>
-          </div>
         </div>
         <div className="col-lg-3"/>
       </div>
