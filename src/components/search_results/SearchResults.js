@@ -1,5 +1,5 @@
 import React from 'react'
-import ImdbResults from './ImdbResults'
+import ImdbResultsContainer from './ImdbResultsContainer'
 
 const SearchResults = ({searchResults}) => {
   if (searchResults.searchMovies.error) {
@@ -27,7 +27,8 @@ const SearchResults = ({searchResults}) => {
         </tbody>
       </table>
     </div>
-    <ImdbResults movies={ searchResults.searchMovies.imdbMovies }/>
+    {/* <ImdbResultsContainer movies={ searchResults.searchMovies.imdbMovies }/> */}
+    <ImdbResultsContainer/>
   </div>
   </div>
 
