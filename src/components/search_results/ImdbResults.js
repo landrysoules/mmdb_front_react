@@ -1,5 +1,5 @@
 import React from 'react'
-const ImdbResultRow = ({movies}) => {
+const ImdbResults = ({ movies, onImportClick}) => {
   console.debug(movies)
   if (movies.length > 0) {
     return(
@@ -12,7 +12,7 @@ const ImdbResultRow = ({movies}) => {
               <div className = "row" key={movie.link}>
                 <div className="col-md-2"><img alt={movie.name} src={movie.image}/></div>
                 <div className="col-md-8"><a href={`http://www.imdb.com${movie.link}`} rel="noopener noreferrer" target="_blank">{movie.name}</a></div>
-                <div className="col-md-2"><button type="button" className="btn btn-default">
+                <div className="col-md-2"><button type="button" className="btn btn-default" onClick={ e => {onImportClick(e, movie.link)}}>
                   <span className="glyphicon glyphicon-download" aria-hidden="true"></span> Import into mmdb
                     </button>
                 </div>
@@ -27,4 +27,4 @@ const ImdbResultRow = ({movies}) => {
   }
 }
 
-export default ImdbResultRow
+export default ImdbResults
