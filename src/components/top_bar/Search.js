@@ -23,7 +23,7 @@ class Search extends Component {
       <form onSubmit={ e => {this.props.onSearchClick(e, this.state.queryString)}}>
         <Navbar.Form pullLeft>
           <FormGroup>
-            <FormControl type="text" placeholder="Search" value={this.state.queryString} onChange={ e => {this.onSearchChange(e)}}/>
+            <FormControl type="text" placeholder="Search" value={this.state.queryString} onChange={ e => {this.onSearchChange(e)}} className="col-6"/>
           </FormGroup>
           {' '}
           <Button type="submit">

@@ -11,15 +11,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container-fluid">
-        <div className="col-lg-3"/>
-        <div className="col-lg-6">
+      <div className="App container">
+        <div className="col-lg-12">
           <div className="row">
             <TopBar/>
           </div>
             <SearchResultsContainer/>
         </div>
-        <div className="col-lg-3"/>
       </div>
     );
   }
