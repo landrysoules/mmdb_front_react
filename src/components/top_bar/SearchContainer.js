@@ -2,6 +2,12 @@ import Search from './Search'
 import { connect } from 'react-redux'
 import { search } from '../../actions/search'
 
+const mapStateToProps = state => {
+  return {
+    loading: state.searchResults.searchMovies.loading
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     onSearchClick: (event, queryString) => {
@@ -13,7 +19,7 @@ const mapDispatchToProps = dispatch => {
 }
 
 const SearchContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Search)
 

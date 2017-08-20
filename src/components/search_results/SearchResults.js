@@ -10,6 +10,7 @@ const SearchResults = ({searchResults}) => {
     return (
       <div className="row">
       <div className="col-lg-12">
+        {/* { partial } */}
       <div className="row">
       <div className="bs-callout bs-callout-warning">
         <h4>From MMDB</h4>
