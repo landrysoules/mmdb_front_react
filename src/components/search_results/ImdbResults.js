@@ -8,7 +8,7 @@ const ImdbResults = ({ movies, onImportClick}) => {
     <div className = "row">
       <div className="col-md-12">
         <div className="bs-callout bs-callout-warning">
-          <h4>From MMDB</h4>
+          <h4>From IMDB</h4>
         </div>
       </div>
     </div>

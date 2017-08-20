@@ -1,6 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
 import {Navbar, FormControl, FormGroup, Button} from 'react-bootstrap'
+import Spinner from 'react-spinkit'
 
 class Search extends Component {
 
@@ -19,6 +20,12 @@ class Search extends Component {
   }
 
   render() {
+    let partial
+    if (this.props.loading) {
+        partial =  <Spinner name='circle' color="black"/>
+    } else {
+      partial = <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+    }
     return (
       <form onSubmit={ e => {this.props.onSearchClick(e, this.state.queryString)}}>
         <Navbar.Form pullLeft>
@@ -27,7 +34,7 @@ class Search extends Component {
           </FormGroup>
           {' '}
           <Button type="submit">
-            <span className="glyphicon glyphicon-search" aria-hidden="true"></span>
+            { partial }
           </Button>
         </Navbar.Form>
       </form>

@@ -10,7 +10,16 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-
+    case `${SEARCH}`:
+      return {
+        ...state,
+        searchMovies: {
+          localMovies: [...state.searchMovies.localMovies],
+          imdbMovies: [...state.searchMovies.imdbMovies],
+          error: null,
+          loading: true
+        }
+      }
     case `${SEARCH}_SUCCESS`:
       return {
         ...state,
