@@ -13,10 +13,10 @@ const ImdbResults = ({ movies, onImportClick}) => {
       </div>
     </div>
           <div className = "row">
-            { movies.map(movie => {
+            { movies.map((movie, index) => {
               return(
-                <div className="col-md-4">
-                  <div className="panel panel-success">
+                <div className="col-md-4" key={index}>
+                  <div className="panel panel-primary">
                     <div className="panel-heading">
                       <h3 className="panel-title">{movie.name}</h3>
                     </div>
