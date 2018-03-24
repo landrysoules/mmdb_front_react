@@ -1,22 +1,28 @@
 import React from 'react';
-import logo from './logo.png';
 import { Navbar } from 'react-bootstrap';
 import './TopBar.css';
 import SearchContainer from './SearchContainer';
+import { Link } from 'react-router-dom';
+import logo from './tmdb-logo.svg';
 
 const TopBar = () => (
-  <Navbar>
-   <Navbar.Header>
-    <Navbar.Brand>
-      <a href="/home">
-        <img alt="mmdb" src={logo}/>
-      </a>
-    </Navbar.Brand>
-    <Navbar.Toggle/>
-  </Navbar.Header> <Navbar.Collapse>
- <SearchContainer/>
-  </Navbar.Collapse>
-</Navbar >
-)
+  <div className="row topbar">
+    <div className="col-md-2" />
+    <div className="col-md-1">
+      <img src={logo} alt="" />
+    </div>
+    <div className="col-md-3">
+      <ul className="nav">
+        <li>
+          <Link to="/discover">discover</Link>
+        </li>
+        <li>movies</li>
+        <li>tv shows</li>
+        <li>people</li>
+      </ul>
+    </div>
+    <div className="col-md-2" />
+  </div>
+);
 
 export default TopBar;
