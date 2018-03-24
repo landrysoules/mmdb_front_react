@@ -5,3 +5,9 @@ exports[`SearchResults display error message when API returns an error 1`] = `
   internal server error
 </h2>
 `;
+
+exports[`SearchResults display local search results 1`] = `
+<h2>
+  internal server error
+</h2>
+`;

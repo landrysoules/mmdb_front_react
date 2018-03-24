@@ -13,7 +13,8 @@ import logger from 'redux-logger'
 import App from './App'
 
 const client = axios.create({ //all axios can be used, shown in axios documentation
-  baseURL:'http://localhost:3000/api',
+  baseURL:process.env.REACT_APP_API_ROOT,
+  //baseURL:'https://mmdb.spaceinvade.rs/api',
   responseType: 'json'
 });
 

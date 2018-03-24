@@ -7,7 +7,7 @@ export function search(searchString) {
       request:{
         url:'/movies/search',
         params: {
-          request: searchString
+          title: searchString
         }
       }
     }
