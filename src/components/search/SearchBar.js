@@ -2,6 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { FormControl, FormGroup, Button } from 'react-bootstrap';
 import Spinner from 'react-spinkit';
+import './SearchBar.css';
 
 class SearchBar extends Component {
   constructor(props) {

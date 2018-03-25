@@ -1,47 +1,43 @@
-import {SEARCH} from '../constants/action-types'
+import { SEARCH } from '../constants/action-types';
 const INITIAL_STATE = {
-  searchMovies: {
-    localMovies: [],
-    imdbMovies: [],
+  multiSearch: {
+    results: [],
     error: null,
     loading: false
   }
-}
+};
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case `${SEARCH}`:
       return {
         ...state,
-        searchMovies: {
-          localMovies: [...state.searchMovies.localMovies],
-          imdbMovies: [...state.searchMovies.imdbMovies],
+        multiSearch: {
+          results: [...state.multiSearch.results],
           error: null,
           loading: true
         }
-      }
+      };
     case `${SEARCH}_SUCCESS`:
       return {
         ...state,
-        searchMovies: {
-          localMovies: action.payload.data.local_movies,
-          imdbMovies: action.payload.data.imdb_movies,
+        multiSearch: {
+          results: action.payload.data.results,
           error: null,
           loading: false
         }
-      }
+      };
     case `${SEARCH}_FAIL`:
       return {
         ...state,
-        searchMovies: {
-          localMovies: [],
-          imdbMovies: [],
+        multiSearch: {
+          results: [],
           error: action.error,
           loading: false
         }
-      }
+      };
 
     default:
-      return state
+      return state;
   }
 }

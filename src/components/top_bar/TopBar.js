@@ -9,16 +9,24 @@ const TopBar = () => (
   <div className="row topbar">
     <div className="col-md-2" />
     <div className="col-md-1">
-      <img src={logo} alt="" />
+      <Link to="/">
+        <img src={logo} alt="" />
+      </Link>
     </div>
-    <div className="col-md-3">
-      <ul className="nav">
+    <div className="col-md-5">
+      <ul>
         <li>
           <Link to="/discover">discover</Link>
         </li>
-        <li>movies</li>
-        <li>tv shows</li>
-        <li>people</li>
+        <li>
+          <Link to="/discover">movies</Link>
+        </li>
+        <li>
+          <Link to="/discover">tv shows</Link>
+        </li>
+        <li>
+          <Link to="/discover">people</Link>
+        </li>
       </ul>
     </div>
     <div className="col-md-2" />

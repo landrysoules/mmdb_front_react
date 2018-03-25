@@ -1,6 +1,7 @@
-import { SEARCH } from '../constants/action-types';
+import { AIRING } from '../constants/action-types';
 
-export function search(searchString) {
+export function airing(searchString) {
+  //FIXME : split in 2 actions : airingtv and airing theater
   return {
     type: SEARCH,
     payload: {
