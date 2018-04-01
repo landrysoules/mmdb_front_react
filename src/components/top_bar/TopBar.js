@@ -1,7 +1,6 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import './TopBar.css';
-import SearchContainer from './SearchContainer';
 import { Link } from 'react-router-dom';
 import logo from './tmdb-logo.svg';
 
@@ -14,7 +13,7 @@ const TopBar = () => (
       </Link>
     </div>
     <div className="col-md-5">
-      <ul>
+      <ul className="topbar">
         <li>
           <Link to="/discover">discover</Link>
         </li>

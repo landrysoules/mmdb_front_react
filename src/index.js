@@ -11,6 +11,8 @@ import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import logger from 'redux-logger';
 import App from './App';
+import { airingTv } from './actions/airing_tv';
+import { airingTheater } from './actions/airing_theater';
 
 const client = axios.create({
   //all axios can be used, shown in axios documentation
@@ -23,11 +25,14 @@ let store = createStore(
   mmdbApp,
   composeEnhancers(
     applyMiddleware(
-      axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix
+      axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix. This middleware automatically calls state change (dispatch) when axios requests finish (success or failure)
       logger
     )
   )
 );
+
+// store.dispatch(airingTv());
+store.dispatch(airingTheater());
 
 ReactDOM.render(
   <Provider store={store}>

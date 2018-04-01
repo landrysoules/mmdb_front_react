@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import searchResults from './searchResults';
-import importMovies from './importMovies';
+import airingMovies from './airingMovies';
 
 // import visibilityFilter from './visibilityFilter'
 
 const mmdbApp = combineReducers({
-  searchResults
-  // importMovies
+  searchResults,
+  airingMovies
 });
 
 export default mmdbApp;

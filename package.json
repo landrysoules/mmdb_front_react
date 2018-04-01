@@ -17,7 +17,8 @@
     "react-test-renderer": "^16.2.0",
     "redux": "^3.7.2",
     "redux-axios-middleware": "^4.0.0",
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "reselect": "^3.0.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.12.0",

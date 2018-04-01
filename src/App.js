@@ -4,9 +4,7 @@ import './App.css';
 import DefaultLayout from './components/layout/DefaultLayout';
 
 class App extends Component {
-  // componentWillMount() {
-  //   this.getMovies();
-  // };
+  componentWillMount() {}
 
   render() {
     return (
