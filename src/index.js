@@ -13,6 +13,9 @@ import logger from 'redux-logger';
 import App from './App';
 import { airingTv } from './actions/airing_tv';
 import { airingTheater } from './actions/airing_theater';
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from './sagas/sagas';
+import thunk from 'redux-thunk';
 
 const client = axios.create({
   //all axios can be used, shown in axios documentation
@@ -20,16 +23,22 @@ const client = axios.create({
   responseType: 'json'
 });
 
+const sagaMiddleware = createSagaMiddleware();
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 let store = createStore(
   mmdbApp,
   composeEnhancers(
     applyMiddleware(
+      thunk,
       axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix. This middleware automatically calls state change (dispatch) when axios requests finish (success or failure)
+      sagaMiddleware,
       logger
     )
   )
 );
+
+sagaMiddleware.run(rootSaga);
 
 // store.dispatch(airingTv());
 store.dispatch(airingTheater());

@@ -1,0 +1,11 @@
+.TheaterContent{
+  position: relative;
+}
+
+.description{
+  bottom:3em;
+  left:0;
+  position: absolute;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}

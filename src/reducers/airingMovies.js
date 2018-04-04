@@ -7,8 +7,8 @@ const INITIAL_STATE = {
   }
 };
 
-const dummyFunc = state => {
-  console.debug('STATE:', state);
+const dummyFunc = results => {
+  console.debug('ReSuLtS:', results);
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -23,7 +23,7 @@ export default function(state = INITIAL_STATE, action) {
         }
       };
     case `${THEATER_AIRING}_SUCCESS`:
-      dummyFunc(state);
+      dummyFunc(action.payload.data.results);
       return {
         ...state,
         movies: {
