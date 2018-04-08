@@ -1,8 +1,8 @@
-import { TV_AIRING } from '../constants/action-types';
+import { AIRING_SERIES } from '../constants/action-types';
 
-export function airingTv() {
+export function airingSeries() {
   return {
-    type: TV_AIRING,
+    type: AIRING_SERIES,
     payload: {
       request: {
         url: '/tv/on_the_air',
