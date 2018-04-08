@@ -11,11 +11,11 @@ import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import logger from 'redux-logger';
 import App from './App';
-import { airingTv } from './actions/airing_tv';
-import { airingTheater } from './actions/airing_theater';
+import { getBestAiringMovies } from './actions/airing_thunk';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas/sagas';
 import thunk from 'redux-thunk';
+import { airingSeries } from './actions/airing_tv';
 
 const client = axios.create({
   //all axios can be used, shown in axios documentation
@@ -38,10 +38,10 @@ let store = createStore(
   )
 );
 
-sagaMiddleware.run(rootSaga);
+// sagaMiddleware.run(rootSaga);
 
-// store.dispatch(airingTv());
-store.dispatch(airingTheater());
+store.dispatch(getBestAiringMovies());
+store.dispatch(airingSeries());
 
 ReactDOM.render(
   <Provider store={store}>

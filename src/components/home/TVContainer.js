@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import TheaterContent from './TheaterContent';
+import TVContent from './TVContent';
 
 const mapStateToProps = state => {
   return {
-    airingMovies: state.airingMovies
+    airingSeries: state.airingSeries
     // Here we use reselect to get a sublist of the 3 first movies, instead of the whole list returned by the API call
     // airingMovies: getMainAiringMovies(state)
   };
 };
 
-const TheaterContainer = connect(mapStateToProps)(TheaterContent);
+const SeriesContainer = connect(mapStateToProps)(TVContent);
 
-export default TheaterContainer;
+export default SeriesContainer;
