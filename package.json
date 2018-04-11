@@ -5,7 +5,7 @@
   "proxy": "http://localhost:3000/",
   "dependencies": {
     "axios": "^0.17.1",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.1.0",
     "enzyme": "^3.3.0",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
