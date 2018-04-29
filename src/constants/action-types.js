@@ -5,3 +5,4 @@ export const MOVIE_CREDITS = 'MOVIE_CREDITS';
 export const CASTING = 'CASTING';
 export const AIRING_MOVIES = 'AIRING_MOVIES';
 export const AIRING_SERIES = 'AIRING_SERIES';
+export const MOVIE = 'MOVIE';
