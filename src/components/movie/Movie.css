@@ -1,3 +1,46 @@
 .movie-detail {
   background-color: rgba(0, 0, 0, 0.623)
+
+}
+
+.back-cover {
+  background-image: url(https://image.tmdb.org/t/p/original/wrqUiMXttHE4UBFMhLHlN601MZh.jpg);
+  background-size: 1900px 600px;
+  /* object-fit: cover;
+  height: 600px;
+  width: 1900px;*/
+  -webkit-filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8) opacity(10%);
+  filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(50deg) saturate(1000%) contrast(0.8) opacity(10%); 
+}
+
+
+
+
+div.custom_bg {
+  background-image: radial-gradient(circle at 20% 50%, rgba(11.76%, 15.29%, 17.25%, 0.98) 0%, rgba(11.76%, 15.29%, 17.25%, 0.88) 100%);
+}
+
+.full-width{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+/*
+This allow the pic to cover the whole width
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  padding-right: 0;
+  padding-left: 0;
+
+} */
+
+div{
+  padding-bottom: 0;
+}
+
+.movie-block{
+  color: #ffffff;
+}
+
+.poster{
+  margin-top:2em;
 }

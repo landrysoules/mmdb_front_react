@@ -7,13 +7,13 @@ import Movie from '../movie/Movie';
 
 const ContentPanel = () => (
   <div className="row">
-    <div className="col-md-2" />
-    <div className="col-md-8">
+    {/* <div className="col-md-2" /> */}
+    <div className="col-md-12">
       <Route path="/" exact component={HomeContent} />
       <Route path="/discover" component={DiscoverContent} />
       <Route path="/movie/:movieId" component={MovieContainer} />
     </div>
-    <div className="col-md-2" />
+    {/* <div className="col-md-2" /> */}
   </div>
 );
 
