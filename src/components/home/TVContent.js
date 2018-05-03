@@ -11,12 +11,14 @@ const TVContent = ({ airingSeries }) => {
     return (
       <div>
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-5" />
+          <div className="col-md-7">
             <h2>On TV</h2>
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-5" />
+          <div className="col-md-7">
             <span className="TheaterContent">
               <img
                 alt={airingSeries.series.results[1].name}
@@ -42,7 +44,8 @@ const TVContent = ({ airingSeries }) => {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-5" />
+          <div className="col-md-7">
             <div className="TheaterContent">
               <img
                 alt={airingSeries.series.results[0].name}

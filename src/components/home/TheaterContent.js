@@ -1,6 +1,7 @@
 import React from 'react';
 import './TheaterContent.css';
 import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../constants/paths';
+import MovieSticker from './MovieSticker';
 
 const TheaterContent = ({ airingMovies }) => {
   console.debug('airingMovies', airingMovies);
@@ -17,50 +18,25 @@ const TheaterContent = ({ airingMovies }) => {
         </div>
         <div className="row">
           <div className="col-md-12">
-            <span className="TheaterContent">
-              <img
-                alt={airingMovies.movies.results[1].title}
-                src={`${IMAGE_SMALL_PATH}${
-                  airingMovies.movies.results[1].backdrop_path
-                }`}
-              />
-              <span className="description">
-                {airingMovies.movies.results[1].title}
-              </span>
-            </span>
-            <span className="TheaterContent">
-              <img
-                alt={airingMovies.movies.results[2].title}
-                src={`${IMAGE_SMALL_PATH}${
-                  airingMovies.movies.results[2].backdrop_path
-                }`}
-              />
-              <span className="description">
-                {airingMovies.movies.results[2].title}
-              </span>
-            </span>
+            <MovieSticker
+              airingMovies={airingMovies}
+              index="1"
+              imagePath={IMAGE_SMALL_PATH}
+            />
+            <MovieSticker
+              airingMovies={airingMovies}
+              index="2"
+              imagePath={IMAGE_SMALL_PATH}
+            />
           </div>
         </div>
         <div className="row">
           <div className="col-md-12">
-            <div className="TheaterContent">
-              <img
-                alt={airingMovies.movies.results[0].title}
-                src={`${IMAGE_PATH}${
-                  airingMovies.movies.results[0].backdrop_path
-                }`}
-              />
-              <span className="description">
-                {airingMovies.movies.results[0].title}
-              </span>
-              {/* <ul>
-            {airingMovies.movies.results[0].casting.data.cast.map(function(
-              movie
-            ) {
-              return <li key={movie.id}>{movie.name}</li>;
-            })}
-          </ul> */}
-            </div>
+            <MovieSticker
+              airingMovies={airingMovies}
+              index="0"
+              imagePath={IMAGE_PATH}
+            />
           </div>
         </div>
       </div>
