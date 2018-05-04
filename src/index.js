@@ -13,7 +13,7 @@ import logger from 'redux-logger';
 import App from './App';
 import { getBestAiringMovies } from './actions/airing_thunk';
 import createSagaMiddleware from 'redux-saga';
-import rootSaga from './sagas/sagas';
+// import rootSaga from './sagas/sagas';
 import thunk from 'redux-thunk';
 import { airingSeries } from './actions/airing_tv';
 

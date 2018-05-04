@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import DiscoverContent from '../discover/DiscoverContent';
 import HomeContent from '../home/HomeContent';
 import MovieContainer from '../movie/MovieContainer';
-import Movie from '../movie/Movie';
+// import Movie from '../movie/Movie';
 
 const ContentPanel = () => (
   <div className="row">

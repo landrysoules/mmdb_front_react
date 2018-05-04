@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+// import { Navbar } from 'react-bootstrap';
 import './TopBar.css';
 import { Link } from 'react-router-dom';
 import logo from './tmdb-logo.svg';
