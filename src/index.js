@@ -31,8 +31,8 @@ let store = createStore(
   composeEnhancers(
     applyMiddleware(
       thunk,
-      axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix. This middleware automatically calls state change (dispatch) when axios requests finish (success or failure)
       sagaMiddleware,
+      axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix. This middleware automatically calls state change (dispatch) when axios requests finish (success or failure)
       logger
     )
   )
