@@ -2,11 +2,33 @@ import React from 'react';
 import { ClipLoader } from 'react-spinners';
 import './Movie.css';
 import Style from 'style-it';
+import CircularProgressbar from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 const Movie = movie => {
   const fetchedMovie = movie.movie.result;
-  // const displayMovie = fetchedMovie ? fetchedMovie
-
+  const cast = movie.movie.result.casting;
+  // TODO: make a dedicated component
+  const casting = cast ? (
+    <div className="row">
+      <div className="col-md-3">
+        <div>{cast.data.crew[0].name}</div>
+        <div>{cast.data.crew[0].job}</div>
+      </div>
+      <div className="col-md-3">
+        <div>{cast.data.crew[1].name}</div>
+        <div>{cast.data.crew[1].job}</div>
+      </div>
+      <div className="col-md-3">
+        <div>{cast.data.crew[2].name}</div>
+        <div>{cast.data.crew[2].job}</div>
+      </div>
+      <div className="col-md-3">
+        <div>{cast.data.crew[3].name}</div>
+        <div>{cast.data.crew[3].job}</div>
+      </div>
+    </div>
+  ) : null;
   if (fetchedMovie) {
     return (
       <Style>
@@ -38,7 +60,6 @@ div.header.large.first.lazyloaded:before {
         <div className="row">
           <div className="col-md-12 full-width">
             <div className="header large first lazyloaded custom_bg">
-              {/* <div className="custom_bg"> */}
               <div className="row">
                 <div className="col-md-2" />
                 <div className="col-md-2 poster">
@@ -52,22 +73,23 @@ div.header.large.first.lazyloaded:before {
                 </div>
                 <div className="col-md-4 movie-block">
                   <h2>{fetchedMovie.title}</h2>
+                  <div className="percent-circle">
+                    <span>
+                      <CircularProgressbar
+                        percentage={fetchedMovie.vote_average * 10}
+                        strokeWidth="10"
+                        initialAnimation="true"
+                      />
+                    </span>
+                  </div>
                   <h3>Overview</h3>
                   <div>{fetchedMovie.overview}</div>
+                  <h3>Featured Crew</h3>
+                  {casting}
                 </div>
                 <div className="col-md-4" />
               </div>
-
-              {/* </div> */}
             </div>
-            {/* <img
-            className="back-cover"
-            src={
-              'https://image.tmdb.org/t/p/original/' +
-              fetchedMovie.backdrop_path
-            }
-          /> */}
-            {/* {fetchedMovie.original_title} */}
           </div>
         </div>
       </Style>

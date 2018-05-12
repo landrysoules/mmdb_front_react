@@ -44,3 +44,12 @@ div{
 .poster{
   margin-top:2em;
 }
+
+.percent-circle{
+  width: 3em;
+}
+
+.CircularProgressbar-path       { stroke: red; }
+.CircularProgressbar-trail      { stroke: gray; }
+.CircularProgressbar-text       { fill: yellow; }
+.CircularProgressbar-background { fill: green; }

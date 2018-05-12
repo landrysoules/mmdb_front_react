@@ -9,3 +9,11 @@
   color: #fff;
   text-shadow: 1px 1px 0 #000;
 }
+
+.sticker-casting{
+  bottom:1em;
+  left:0;
+  position: absolute;
+  color: #fff;
+  text-shadow: 1px 1px 0 #000;
+}
