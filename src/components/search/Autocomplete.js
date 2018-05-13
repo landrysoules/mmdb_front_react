@@ -7,9 +7,6 @@ import {withRouter} from 'react-router-dom'
 
 class Autocomplete extends Component {
 
-  // FIXME: Virer l'ancienne searchbar. Dans searchbarcontainer, lier autocomplete
-  // a action movie.
-
   constructor(props) {
     super(props);
     this.state = {};
@@ -29,22 +26,6 @@ class Autocomplete extends Component {
     this.setState({value: value});
   }
 
-  switchToMulti() {
-    this.setState({
-      multi: true,
-      value: [this.state.value]
-    });
-  }
-
-  switchToSingle() {
-    this.setState({
-      multi: false,
-      value: this.state.value
-        ? this.state.value[0]
-        : null
-    });
-  }
-
   getUsers(input) {
     if (!input) {
       return Promise.resolve({options: []});
@@ -56,31 +37,26 @@ class Autocomplete extends Component {
       }
     })
       .then((data) => {
+        console.debug('Options: ', data.data.results);
         return {options: data.data.results};
       });
 
-    // return axios   .get(`https://api.github.com/search/users?q=${input}`)
-    // .then((data) => {     return {options: data.data.items};   });
   }
 
   gotoUser(value, event) {
-    // window.open(value.html_url);
+
+    this
+      .props
+      .displayMovie(value.id)
     this
       .props
       .history
       .push(`/movie/${value.id}`)
+
   }
 
-  toggleBackspaceRemoves() {
-    this.setState({
-      backspaceRemoves: !this.state.backspaceRemoves
-    });
-  }
-
-  toggleCreatable() {
-    this.setState({
-      creatable: !this.state.creatable
-    });
+  filterOptions(options, filter, currentValues) { // Do no filtering, just return all options
+    return options;
   }
 
   render() {
@@ -90,51 +66,13 @@ class Autocomplete extends Component {
 
     return (
       <div className="section">
-        <h3 className="section-heading">{this.props.label}
-          <a
-            href="https://github.com/JedWatson/react-select/tree/master/examples/src/components/GithubUsers.js">(Source)</a>
-        </h3>
         <AsyncComponent multi={this.state.multi} value={this.state.value} onChange={this.onChange} onValueClick={this.gotoUser} // valueKey="id"
-          // labelKey="login"
-          valueKey="id" labelKey="original_title" loadOptions={this.getUsers} backspaceRemoves={this.state.backspaceRemoves}/> {/* <div className="checkbox-list">
-          <label className="checkbox">
-            <input
-              type="radio"
-              className="checkbox-control"
-              checked={this.state.multi}
-              onChange={this.switchToMulti}/>
-            <span className="checkbox-label">Multiselect</span>
-          </label>
-          <label className="checkbox">
-            <input
-              type="radio"
-              className="checkbox-control"
-              checked={!this.state.multi}
-              onChange={this.switchToSingle}/>
-            <span className="checkbox-label">Single Value</span>
-          </label>
-        </div> */}
-        {/* <div className="checkbox-list">
-          <label className="checkbox">
-            <input
-              type="checkbox"
-              className="checkbox-control"
-              checked={this.state.creatable}
-              onChange={this.toggleCreatable}/>
-            <span className="checkbox-label">Creatable?</span>
-          </label>
-          <label className="checkbox">
-            <input
-              type="checkbox"
-              className="checkbox-control"
-              checked={this.state.backspaceRemoves}
-              onChange={this.toggleBackspaceRemoves}/>
-            <span className="checkbox-label">Backspace Removes?</span>
-          </label>
-        </div> */}
+          valueKey="id" labelKey="original_title" loadOptions={this.getUsers} backspaceRemoves={this.state.backspaceRemoves}/>
       </div>
     );
   }
 };
-
+// Here I have to use withRouter, since Autocomplete is not rendered by RR
+// (since not in a Route). Great explanation here :
+// https://tylermcginnis.com/react-router-programmatically-navigate/
 export default withRouter(Autocomplete);
