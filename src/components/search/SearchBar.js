@@ -4,14 +4,16 @@ import React from 'react';
 import {Component} from 'react';
 import axios from 'axios';
 import {withRouter} from 'react-router-dom'
-import './Autocomplete.css';
+import './SearchBar.css';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 
-class Autocomplete extends Component {
+class SearchBar extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      wrapperStyle: "border: 0;"
+    };
     this.onChange = this
       .onChange
       .bind(this);
@@ -20,6 +22,9 @@ class Autocomplete extends Component {
       .bind(this);
     this.renderOption = this
       .renderOption
+      .bind(this);
+    this.renderInput = this
+      .renderInput
       .bind(this);
   }
 
@@ -55,11 +60,12 @@ class Autocomplete extends Component {
 
     this
       .props
-      .displayMovie(value.id)
+      .displayMovie(value.id);
     this
       .props
       .history
-      .push(`/movie/${value.id}`)
+      .push(`/movie/${value.id}`);
+    this.setState({value: ''});
 
   }
 
@@ -77,6 +83,15 @@ class Autocomplete extends Component {
     </div>
   }
 
+  renderInput(){
+    return <input type="text"/>
+  }
+
+  renderArrow(){
+    return null
+  }
+
+
   filterOptions(options, filter, currentValues) {
     // For now, we just manage movies and tv, in the future, I hope I'll find time
     // to add persons and all other media_types To disable filtering, juste return
@@ -90,19 +105,28 @@ class Autocomplete extends Component {
     const AsyncComponent = this.state.creatable
       ? Select.AsyncCreatable
       : Select.Async;
+      const placeholder = <span><FontAwesomeIcon icon='search'/></span>;
 
     return (
-      <div className="section">
-        <AsyncComponent
-          multi={this.state.multi}
-          value={this.state.value}
-          onChange={this.onChange}
-          filterOptions={this.filterOptions}
-          valueKey="id"
-          labelKey="original_title"
-          loadOptions={this.getResults}
-          backspaceRemoves={this.state.backspaceRemoves}
-          optionRenderer={this.renderOption}/>
+      <div className="row">
+        <div className="col-md-2"></div>
+        <div className="col-md-8">
+          <AsyncComponent
+            multi={this.state.multi}
+            value={this.state.value}
+            onChange={this.onChange}
+            filterOptions={this.filterOptions}
+            valueKey="id"
+            labelKey="original_title"
+            loadOptions={this.getResults}
+            backspaceRemoves={this.state.backspaceRemoves}
+            optionRenderer={this.renderOption}
+            arrowRenderer={this.renderArrow}
+            placeholder={placeholder}
+            style={{border:0, 'box-shadow': 'none'}}
+            />
+        </div>
+        <div className="col-md-2"></div>
       </div>
     );
   }
@@ -111,4 +135,4 @@ class Autocomplete extends Component {
 // (since not in a Route). Great explanation here :
 // https://tylermcginnis.com/react-router-programmatically-navigate/ I need it
 // to change the route to /movie/xxx
-export default withRouter(Autocomplete);
+export default withRouter(SearchBar);

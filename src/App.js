@@ -3,15 +3,16 @@ import {BrowserRouter} from 'react-router-dom';
 import './App.css';
 import DefaultLayout from './components/layout/DefaultLayout';
 import fontawesome from '@fortawesome/fontawesome';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+// import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faFilm from '@fortawesome/fontawesome-free-solid/faFilm';
 import faTv from '@fortawesome/fontawesome-free-solid/faTv';
+import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 
 class App extends Component {
   componentWillMount() {
     fontawesome
       .library
-      .add(faFilm, faTv);
+      .add(faFilm, faTv, faSearch);
   }
 
   render() {
