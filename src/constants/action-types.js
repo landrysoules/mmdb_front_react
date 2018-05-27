@@ -7,3 +7,6 @@ export const AIRING_MOVIES = 'AIRING_MOVIES';
 export const AIRING_SERIES = 'AIRING_SERIES';
 export const MOVIE = 'MOVIE';
 export const MOVIE_SUCCESS = 'MOVIE_SUCCESS';
+export const MOVIE_FAIL = 'MOVIE_FAIL';
+export const CAST = 'CAST';
+export const CAST_SUCCESS = 'CAST_SUCCESS';

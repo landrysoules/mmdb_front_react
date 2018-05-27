@@ -19,7 +19,7 @@ function getAllAiringMovies() {
   });
 }
 
-function getCastingForMovie(movieId) {
+export function getCastingForMovie(movieId) {
   return axios.get(`${process.env.REACT_APP_API_ROOT}/movie/${movieId}/credits`, {
     params: {
       api_key: process.env.REACT_APP_API_KEY

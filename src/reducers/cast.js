@@ -1,6 +1,6 @@
-import { MOVIE, MOVIE_SUCCESS, MOVIE_FAIL } from '../constants/action-types';
+import { CAST } from '../constants/action-types';
 const INITIAL_STATE = {
-  movie: {
+  cast: {
     result: [],
     error: null,
     loading: false
@@ -9,28 +9,28 @@ const INITIAL_STATE = {
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case MOVIE:
+    case `${CAST}`:
       return {
         ...state,
-        movie: {
-          result: [...state.movie.result],
+        cast: {
+          result: [...state.cast.result],
           error: null,
           loading: true
         }
       };
-    case MOVIE_SUCCESS:
+    case `${CAST}_SUCCESS`:
       return {
         ...state,
-        movie: {
+        cast: {
           result: action.payload.data,
           error: null,
           loading: false
         }
       };
-    case MOVIE_FAIL:
+    case `${CAST}_FAIL`:
       return {
         ...state,
-        movie: {
+        cast: {
           result: [],
           error: action.error,
           loading: false

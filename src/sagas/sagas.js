@@ -1,17 +1,16 @@
-// import {
-//   put,
-//   takeEvery,
-//   all,
-//   select,
-//   takeLatest,
-//   take,
-//   call
-// } from 'redux-saga/effects';
-// import {
-//   THEATER_AIRING,
-//   MOVIE_CREDITS,
-//   CASTING
-// } from '../constants/action-types';
+import {
+  put,
+  takeEvery,
+  // all,
+  // select,
+  // takeLatest
+  take,
+  // call
+} from 'redux-saga/effects';
+import {
+   MOVIE_SUCCESS, CAST_SUCCESS
+} from '../constants/action-types';
+import { getCast } from '../actions/cast';
 // import { getMainAiringMovies } from '../selectors/index';
 // import { movieCredits } from '../actions/movie_credits';
 
@@ -44,9 +43,18 @@
 //   // ... call some API endpoint then dispatch a success/error action
 // }
 
-// export default function* rootSaga() {
-//   yield all([
-//     helloSaga()
-//     // loadAiringMovies()
-//   ]);
-// }
+function* fetchCredits(data){
+ yield console.info('!!!SAGA!!!', data);
+ yield put(getCast(data.payload.data.id));
+ const cast = yield take(CAST_SUCCESS);
+  console.debug('SAGA - cast[0]', cast.payload.data.cast[0].name);
+}
+
+export function* castSaga() {
+  // yield takeLatest(MOVIE_SUCCESS, data => {
+    // console.error('SAGA', data);
+  // });
+  yield takeEvery(MOVIE_SUCCESS, fetchCredits)
+  
+}
+

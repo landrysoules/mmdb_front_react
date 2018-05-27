@@ -4,6 +4,7 @@ import './Movie.css';
 import Style from 'style-it';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import TopBilledCastContainer from './cast/TopBilledCastContainer';
 
 const Movie = movie => {
   const fetchedMovie = movie.movie.result;
@@ -31,6 +32,7 @@ const Movie = movie => {
   ) : null;
   if (fetchedMovie) {
     return (
+      <div>
       <Style>
         {`
         div.header.large.first:before {
@@ -93,6 +95,14 @@ div.header.large.first.lazyloaded:before {
           </div>
         </div>
       </Style>
+      <div className="row">
+      <div className="col-md-2"></div>
+        <div className="col-md-8">
+        <TopBilledCastContainer movieId={fetchedMovie.id}/>
+        </div>
+        <div className="col-md-2"></div>
+        </div>
+      </div>
     );
   } else {
     return <ClipLoader />;
