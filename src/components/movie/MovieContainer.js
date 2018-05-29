@@ -31,6 +31,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchMovie: () => {
+      //FIXME: action will first lookup store, and fetch API if id is not found
       dispatch(movie(ownProps.match.params.movieId));
     },
     getMovie: movieId => {

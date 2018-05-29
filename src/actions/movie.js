@@ -1,4 +1,4 @@
-import { MOVIE, MOVIE_SUCCESS } from '../constants/action-types';
+import { MOVIE, MOVIE_SUCCESS, MOVIE_AIRING } from '../constants/action-types';
 
 export function movie(movieId) {
   return {
@@ -19,20 +19,44 @@ function setMovieAsCurrent(movie) {
   return {
     type: MOVIE_SUCCESS,
     payload: {
-      data: movie
+       movie
     }
   };
 }
 
-export function getMovie(movieId) {
-  return (dispatch, getState) => {
-    const filteredMovies = getState().airingMovies.movies.results.filter(
-      movie => movie.id + '' === movieId
-    );
-    if (filteredMovies.length > 0) {
-      dispatch(setMovieAsCurrent(filteredMovies[0]));
-    } else {
-      dispatch(movie(movieId));
+// export function getMovie(movieId) {
+//   return (dispatch, getState) => {
+//     const filteredMovies = getState().airingMovies.movies.results.filter(
+//       movie => movie.id + '' === movieId
+//     );
+//     if (filteredMovies.length > 0) {
+//       dispatch(setMovieAsCurrent(filteredMovies[0]));
+//     } else {
+//       dispatch(movie(movieId));
+//     }
+//   };
+// }
+
+export function getAiringMovies() {
+  return {
+    type: MOVIE_AIRING,
+    payload: {
+      request: {
+        url: `/movie/now_playing`,
+        params: {
+          api_key: process.env.REACT_APP_API_KEY
+        }
+      }
     }
   };
+}
+
+export function getMovie(movieId){
+  return (dispatch, getState) =>{
+    const moovie = getState().movies[movieId];
+    if(!moovie){
+      dispatch(movie(movieId));
+    }
+  }
+
 }
