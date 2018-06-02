@@ -1,40 +1,25 @@
-import { MOVIE } from '../constants/action-types';
+import {MOVIE, MOVIE_SUCCESS, MOVIE_FAIL} from '../constants/action-types';
 const INITIAL_STATE = {
-  movie: {
-    result: [],
-    error: null,
-    loading: false
-  }
+  error: null
 };
 
-export default function(state = INITIAL_STATE, action) {
+export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case `${MOVIE}`:
+    case MOVIE:
       return {
         ...state,
-        movie: {
-          result: [...state.movie.result],
-          error: null,
-          loading: true
-        }
+        error: null
       };
-    case `${MOVIE}_SUCCESS`:
+    case MOVIE_SUCCESS:
       return {
         ...state,
-        movie: {
-          result: action.payload.data,
-          error: null,
-          loading: false
-        }
+        [action.payload.data.id]: action.payload.data,
+        error: null
       };
-    case `${MOVIE}_FAIL`:
+    case MOVIE_FAIL:
       return {
         ...state,
-        movie: {
-          result: [],
-          error: action.error,
-          loading: false
-        }
+          error: action.error
       };
 
     default:

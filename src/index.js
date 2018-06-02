@@ -11,9 +11,9 @@ import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import logger from 'redux-logger';
 import App from './App';
-import { getBestAiringMovies } from './actions/airing_thunk';
+import { getAiringMovies } from './actions/movie';
 import createSagaMiddleware from 'redux-saga';
-// import rootSaga from './sagas/sagas';
+import {castSaga, movieSaga} from './sagas/sagas';
 import thunk from 'redux-thunk';
 import { airingSeries } from './actions/airing_tv';
 
@@ -31,16 +31,17 @@ let store = createStore(
   composeEnhancers(
     applyMiddleware(
       thunk,
-      sagaMiddleware,
       axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix. This middleware automatically calls state change (dispatch) when axios requests finish (success or failure)
+      sagaMiddleware, // Careful here : if you declare saga before axios, your sagas won't be triggered !!
       logger
     )
   )
 );
 
-// sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(movieSaga);
+sagaMiddleware.run(castSaga);
 
-store.dispatch(getBestAiringMovies());
+store.dispatch(getAiringMovies());
 store.dispatch(airingSeries());
 
 ReactDOM.render(
@@ -50,9 +51,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// } Cool feature (doesn't reload all the page when in dev, but only the dom concerned by your changes), but you need to reload the server when you change a saga
 
 // if (module.hot) {
 //   // Enable Webpack hot module replacement for reducers

@@ -4,33 +4,16 @@ import './Movie.css';
 import Style from 'style-it';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import TopBilledCastContainer from './cast/TopBilledCastContainer';
+import Crew from './Crew';
 
-const Movie = movie => {
-  const fetchedMovie = movie.movie.result;
-  const cast = movie.movie.result.casting;
-  // TODO: make a dedicated component
-  const casting = cast ? (
-    <div className="row">
-      <div className="col-md-3">
-        <div>{cast.data.crew[0].name}</div>
-        <div>{cast.data.crew[0].job}</div>
-      </div>
-      <div className="col-md-3">
-        <div>{cast.data.crew[1].name}</div>
-        <div>{cast.data.crew[1].job}</div>
-      </div>
-      <div className="col-md-3">
-        <div>{cast.data.crew[2].name}</div>
-        <div>{cast.data.crew[2].job}</div>
-      </div>
-      <div className="col-md-3">
-        <div>{cast.data.crew[3].name}</div>
-        <div>{cast.data.crew[3].job}</div>
-      </div>
-    </div>
-  ) : null;
-  if (fetchedMovie) {
+const Movie = (moovie, cast) => {
+  if (moovie) {
+    const movie = moovie.movie;
+    console.debug('MoViE', movie);
+    console.debug('CaSt', cast);
     return (
+      <div>
       <Style>
         {`
         div.header.large.first:before {
@@ -47,7 +30,7 @@ const Movie = movie => {
           background-repeat: no-repeat;
           background-position: 50% 50%;
           background-image: url(https://image.tmdb.org/t/p/w1400_and_h450_face${
-            fetchedMovie.backdrop_path
+            movie.backdrop_path
           });
           will-change: opacity;
           transition: filter 1s;
@@ -66,33 +49,43 @@ div.header.large.first.lazyloaded:before {
                   <img
                     src={
                       'https://image.tmdb.org/t/p/w300_and_h450_bestv2' +
-                      fetchedMovie.poster_path
+                      movie.poster_path
                     }
-                    alt={fetchedMovie.title}
+                    alt={movie.title}
                   />
                 </div>
                 <div className="col-md-4 movie-block">
-                  <h2>{fetchedMovie.title}</h2>
+                  <h2>{movie.title}</h2>
                   <div className="percent-circle">
                     <span>
                       <CircularProgressbar
-                        percentage={fetchedMovie.vote_average * 10}
+                        percentage={movie.vote_average * 10}
                         strokeWidth="10"
                         initialAnimation="true"
                       />
                     </span>
                   </div>
                   <h3>Overview</h3>
-                  <div>{fetchedMovie.overview}</div>
+                  <div>{movie.overview}</div>
                   <h3>Featured Crew</h3>
-                  {casting}
-                </div>
+                  <Crew crew={[cast.crew]} />
+                 </div>
                 <div className="col-md-4" />
               </div>
             </div>
           </div>
         </div>
       </Style>
+      <div className="row">
+      <div className="col-md-2"></div>
+        <div className="col-md-8">
+        <div className="row">
+        <TopBilledCastContainer movieId={movie.id}/>
+        </div>
+        </div>
+        <div className="col-md-2"></div>
+        </div>
+      </div>
     );
   } else {
     return <ClipLoader />;

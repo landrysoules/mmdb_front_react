@@ -50,7 +50,7 @@ class SearchBar extends Component {
       }
     })
       .then((data) => {
-        console.debug('Options: ', data.data.results);
+        // console.debug('Options: ', data.data.results);
         return {options: data.data.results};
       });
 
@@ -70,7 +70,7 @@ class SearchBar extends Component {
   }
 
   renderOption(option) {
-    console.debug('option', option);
+    // console.debug('option', option);
     const mediaName = option.media_type === 'movie'
       ? option.original_title
       : option.original_name
