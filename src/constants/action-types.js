@@ -13,3 +13,4 @@ export const MOVIE_AIRING_SUCCESS = 'MOVIE_AIRING_SUCCESS';
 export const MOVIE_AIRING_FAIL = 'MOVIE_AIRING_FAIL';
 export const CAST = 'CAST';
 export const CAST_SUCCESS = 'CAST_SUCCESS';
+export const CAST_FAIL = 'CAST_FAIL';

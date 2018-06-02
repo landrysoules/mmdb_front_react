@@ -1,6 +1,6 @@
-import { CAST } from '../constants/action-types';
+import {CAST} from '../constants/action-types';
 
-export function getCast(movieId) {
+export function cast(movieId) {
   return {
     type: CAST,
     payload: {
@@ -12,4 +12,13 @@ export function getCast(movieId) {
       }
     }
   };
+}
+
+export function getCast(movieId) {
+  return (dispatch, getState) => {
+    const kast = getState().cast[movieId];
+    if (!kast) {
+      dispatch(cast(movieId));
+    }
+  }
 }

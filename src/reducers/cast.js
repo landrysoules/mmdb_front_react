@@ -1,39 +1,23 @@
-import { CAST } from '../constants/action-types';
-const INITIAL_STATE = {
-  cast: {
-    result: [],
-    error: null,
-    loading: false
-  }
-};
+import {CAST, CAST_SUCCESS, CAST_FAIL} from '../constants/action-types';
 
-export default function(state = INITIAL_STATE, action) {
+const INITIAL_STATE = {};
+
+export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case `${CAST}`:
+    case CAST:
       return {
-        ...state,
-        cast: {
-          result: [...state.cast.result],
-          error: null,
-          loading: true
-        }
+        ...state
       };
-    case `${CAST}_SUCCESS`:
+    case CAST_SUCCESS:
       return {
         ...state,
-        cast: {
-          result: action.payload.data,
-          error: null,
-          loading: false
-        }
+        [action.payload.data.id]: action.payload.data
       };
-    case `${CAST}_FAIL`:
+    case CAST_FAIL:
       return {
         ...state,
-        cast: {
-          result: [],
-          error: action.error,
-          loading: false
+        [action.payload.data.id]: {
+          error: action.error
         }
       };
 
@@ -41,3 +25,4 @@ export default function(state = INITIAL_STATE, action) {
       return state;
   }
 }
+

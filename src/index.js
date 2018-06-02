@@ -11,7 +11,7 @@ import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 import logger from 'redux-logger';
 import App from './App';
-import { getBestAiringMovies, processAiring, getAiringMovies } from './actions/airing_thunk';
+import { getAiringMovies } from './actions/movie';
 import createSagaMiddleware from 'redux-saga';
 import {castSaga, movieSaga} from './sagas/sagas';
 import thunk from 'redux-thunk';
@@ -38,8 +38,8 @@ let store = createStore(
   )
 );
 
-sagaMiddleware.run(castSaga);
 sagaMiddleware.run(movieSaga);
+sagaMiddleware.run(castSaga);
 
 store.dispatch(getAiringMovies());
 store.dispatch(airingSeries());

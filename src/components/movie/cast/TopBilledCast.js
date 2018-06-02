@@ -1,18 +1,24 @@
 import React from 'react';
+import {IMAGE_PROFILE_PATH} from '../../../constants/paths';
+import './TopBilledCast.css';
 
 const TopBilledCast = (cast) => {
   console.warn('cast1', cast);
-  console.warn('cast2', cast.cast);
-  console.warn('cast3', cast.cast.cast);
-  console.warn('cast4', cast.cast.cast.result);
-
-  const kast = cast&&cast.cast.cast.result&&cast.cast.cast.result.cast? cast.cast.cast.result.cast[0].name:null;
   return (
-    <div className="row">
-    <div className="col-md-12">
-      <h2>Top Billed Cast {kast}</h2>
+
+    <div className="col-md-2">
+			<div className="panel panel-default panel-front">		
+				<div className="panel-heading">
+					{/* <h4 className="panel-title"><img className="img-responsive" width="174px" height="244px" src={`${IMAGE_PROFILE_PATH}/${cast.cast.profile_path}`}/></h4> */}
+					<h4 className="panel-title"><img className="img-responsive" width="183px" height="237px" src={`${IMAGE_PROFILE_PATH}/${cast.cast.profile_path}`}/></h4>
+				</div>
+				<div className="panel-body">
+        <strong>{cast.cast.name}</strong>
+        <div>{cast.cast.character}</div>
+      </div>
     </div>
-    </div>
+  </div>
+
   )
 }
 

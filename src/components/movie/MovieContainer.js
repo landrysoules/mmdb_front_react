@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import Movie from './Movie';
-import {movie, getMovie} from '../../actions/movie';
+import {getMovie} from '../../actions/movie';
+import {getCast} from '../../actions/cast';
 
 // We'll use this component for both displaying selected movie from front page
 // and displaying movie from search or direct url (ie bookmarked page). Hence we
@@ -15,27 +16,36 @@ class MovieContainer extends Component {
     this
       .props
       .getMovie(this.props.match.params.movieId);
+    // this
+    //   .props
+    //   .getCast(this.props.match.params.movieId);
   }
 
   // Be careful ! You have to pass as property to Movie, an element from store,
   // otherwise your component won't be updated when state changes
   render() {
-    return <Movie movie={this.props.movie.movie}/>;
+
+    return (this.props.movie && this.props.cast)
+      ? <Movie movie={this.props.movie} cast={this.props.cast}/>
+      : null;
   };
 }
 
-const mapStateToProps = state => {
-  return {movie: state.movie};
-};
+const mapStateToProps = (state, ownProps) => {
+  return {
+    movie: state.movie[ownProps.match.params.movieId],
+    cast: state.cast[ownProps.match.params.movieId],
+    dummy: 'pop'
+  }
+}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchMovie: () => {
-      //FIXME: action will first lookup store, and fetch API if id is not found
-      dispatch(movie(ownProps.match.params.movieId));
-    },
     getMovie: movieId => {
       dispatch(getMovie(movieId));
+    },
+    getCast: movieId => {
+      dispatch(getCast(movieId))
     }
   };
 };
