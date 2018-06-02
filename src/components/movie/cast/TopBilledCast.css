@@ -1,0 +1,23 @@
+
+.panel-front .panel-heading .panel-title img {
+	border-radius:3px 3px 0px 0px;
+	width:100%;
+}
+
+.panel-front .panel-heading {
+	padding: 0px;	
+}
+
+.panel-front .panel-heading h4 {
+	line-height: 0;
+}
+
+.panel-front .panel-body h4 {
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+.text-right {
+    margin-top: 10px;
+}

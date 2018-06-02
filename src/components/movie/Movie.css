@@ -49,7 +49,25 @@ div{
   width: 3em;
 }
 
-.CircularProgressbar-path       { stroke: red; }
-.CircularProgressbar-trail      { stroke: gray; }
-.CircularProgressbar-text       { fill: yellow; }
-.CircularProgressbar-background { fill: green; }
+.CircularProgressbar .CircularProgressbar-path {
+  stroke: #01D277 !important;
+}
+
+.CircularProgressbar .CircularProgressbar-trail {
+  stroke: rgb(193, 245, 222) !important;
+}
+
+.CircularProgressbar .CircularProgressbar-text {
+  fill: #ffffff !important;
+  font-size: 24px !important;
+}
+
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+

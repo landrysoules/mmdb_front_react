@@ -1,4 +1,4 @@
-import { MOVIE, MOVIE_SUCCESS } from '../constants/action-types';
+import {MOVIE, MOVIE_AIRING} from '../constants/action-types';
 
 export function movie(movieId) {
   return {
@@ -14,25 +14,25 @@ export function movie(movieId) {
   };
 }
 
-// Used to trigger corresponding reducer, which will write movie in the state, without API fetching.
-function setMovieAsCurrent(movie) {
+export function getAiringMovies() {
   return {
-    type: MOVIE_SUCCESS,
+    type: MOVIE_AIRING,
     payload: {
-      data: movie
+      request: {
+        url: `/movie/now_playing`,
+        params: {
+          api_key: process.env.REACT_APP_API_KEY
+        }
+      }
     }
   };
 }
 
 export function getMovie(movieId) {
   return (dispatch, getState) => {
-    const filteredMovies = getState().airingMovies.movies.results.filter(
-      movie => movie.id + '' === movieId
-    );
-    if (filteredMovies.length > 0) {
-      dispatch(setMovieAsCurrent(filteredMovies[0]));
-    } else {
+    const moovie = getState().movie[movieId];
+    if (!moovie) {
       dispatch(movie(movieId));
     }
-  };
+  }
 }

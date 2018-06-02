@@ -1,24 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-//FIXME: background image has to be a background image!
-const MovieSticker = ({ airingMovies, index, imagePath }) => {
+const MovieSticker = ({movie, imagePath, cast}) => {
+  const castElm = cast
+    ? <span className="sticker-casting">
+        {cast.cast[0].name}, {cast.cast[1].name}
+      </span>
+    : null
+  const linkElm = movie
+    ? <Link to={`/movie/${movie.id}`}>
+        <img alt={movie.title} src={`${imagePath}${movie.backdrop_path}`}/>
+      </Link>
+    : null
   return (
     <span className="TheaterContent">
-      <Link to={`/movie/${airingMovies.movies.results[index].id}`}>
-        <img
-          alt={airingMovies.movies.results[index].title}
-          src={`${imagePath}${
-            airingMovies.movies.results[index].backdrop_path
-          }`}
-        />
-      </Link>
+      {linkElm}
       <span className="description">
-        {airingMovies.movies.results[index].title}
+        {movie.title}
       </span>
-      <span className="sticker-casting">
-        {airingMovies.movies.results[index].casting.data.crew[0].name}
-      </span>
+      {castElm}
     </span>
   );
 };
