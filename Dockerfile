@@ -3,6 +3,11 @@
 FROM node:10.1.0 as node
 
 # Create a directory where our app will be placed. This might not be necessary
+
+# ADD package.json mmdb/
+# ADD public mmdb/
+# ADD src mmdb/
+
 COPY . /mmdb/
 
 # Change directory so that our commands run inside this new directory
@@ -13,3 +18,4 @@ RUN yarn install
 
 #Build the app
 RUN npm run build
+# RUN cd /mmdb && bash -l -c 'npm run build'
