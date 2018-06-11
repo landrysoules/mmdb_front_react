@@ -1,0 +1,15 @@
+.bottom-background{
+  background-color: #061D25;
+  background-image: url(https://www.themoviedb.org/static_cache/v4/footers_v2/GameOfThrones-dc37cf50a3cb2df1e837832f719996ec737c9e58cf0328f2302f1497859ad41c.jpg);
+  background-size: cover;
+  height: 60vh;
+}
+
+#logo{
+  width:100px;
+  height:100px;
+}
+
+.center-row{
+  margin-top: 100px;
+}
