@@ -5,9 +5,9 @@ FROM node:10.1.0 as node
 # Create a directory where our app will be placed. This might not be necessary
 RUN mkdir /mmdb
 
-ADD package.json /mmdb
-ADD public /mmdb
-ADD src /mmdb
+COPY package.json /mmdb/
+COPY public/ /mmdb/public/
+COPY src/ /mmdb/src/
 
 # Change directory so that our commands run inside this new directory
 WORKDIR /mmdb
