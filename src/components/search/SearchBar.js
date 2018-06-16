@@ -50,7 +50,6 @@ class SearchBar extends Component {
       }
     })
       .then((data) => {
-        // console.debug('Options: ', data.data.results);
         return {options: data.data.results};
       });
 
@@ -70,7 +69,6 @@ class SearchBar extends Component {
   }
 
   renderOption(option) {
-    // console.debug('option', option);
     const mediaName = option.media_type === 'movie'
       ? option.original_title
       : option.original_name
@@ -123,7 +121,7 @@ class SearchBar extends Component {
             optionRenderer={this.renderOption}
             arrowRenderer={this.renderArrow}
             placeholder={placeholder}
-            style={{border:0, 'box-shadow': 'none'}}
+            style={{border:0, 'boxShadow': 'none'}}
             />
         </div>
         <div className="col-md-2"></div>

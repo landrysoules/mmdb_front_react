@@ -1,9 +1,12 @@
 import React from 'react';
+import './Crew.css';
 
 const Crew = (crew) => {
-  const krew = crew.length >=3 ?  <div><span>{crew[0].name}</span></div> : null;
   return (
-   null
+    <div className="col-md-4 crew-block">
+      <span>
+        <strong>{crew.crew.name}</strong><br/>{crew.crew.job}</span>
+    </div>
   )
 }
 

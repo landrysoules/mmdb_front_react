@@ -1,14 +1,9 @@
 import {
   put,
-  takeEvery,
-  // all,
-  // select,
-  // takeLatest
-  take,
-  // call
+  takeEvery
 } from 'redux-saga/effects';
 import { MOVIE_AIRING_SUCCESS,
-   MOVIE_SUCCESS, CAST_SUCCESS
+   MOVIE_SUCCESS
 } from '../constants/action-types';
 import { getCast } from '../actions/cast';
 import { getMovie } from '../actions/movie';
@@ -16,8 +11,6 @@ import { getMovie } from '../actions/movie';
 function* fetchCredits(data){
  yield console.info('!!!SAGA!!!', data);
  yield put(getCast(data.payload.data.id));
- const cast = yield take(CAST_SUCCESS);
-  console.debug('SAGA - cast[0]', cast.payload.data.cast[0].name);
 }
 
 export function* castSaga() {
@@ -26,7 +19,6 @@ export function* castSaga() {
 }
 
 function* fetchMoviedata(data){
-  yield console.info('!!!SAGA - AIRING!!!', data);
   yield data.payload.data.results.slice(0,3).map(movie => {return put(getMovie( movie.id))});
 }
 

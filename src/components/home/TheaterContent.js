@@ -4,7 +4,6 @@ import {IMAGE_PATH, IMAGE_SMALL_PATH} from '../../constants/paths';
 import MovieSticker from './MovieSticker';
 
 const TheaterContent = ({airingMovies, movies, cast}) => {
-  console.debug('airingMovies', airingMovies);
   const movieList = airingMovies => {
     if (!airingMovies) {
       return null;
@@ -15,6 +14,12 @@ const TheaterContent = ({airingMovies, movies, cast}) => {
       return null;
     }
     if (!movies[airingMovies.ids[2]]) {
+      return null;
+    }
+    if (!movies[airingMovies.ids[1]]) {
+      return null;
+    }
+    if (!movies[airingMovies.ids[0]]) {
       return null;
     }
     const airingMoovies = airingMovies
