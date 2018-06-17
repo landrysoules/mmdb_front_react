@@ -16,13 +16,10 @@ export default function (state = INITIAL_STATE, action) {
     case CAST_FAIL:
       return {
         ...state,
-        [action.payload.data.id]: {
-          error: action.error
-        }
+        error: action.error
       };
 
     default:
       return state;
   }
 }
-
