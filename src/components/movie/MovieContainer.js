@@ -16,15 +16,14 @@ class MovieContainer extends Component {
     this
       .props
       .getMovie(this.props.match.params.movieId);
-    // this
-    //   .props
-    //   .getCast(this.props.match.params.movieId);
+    this
+      .props
+      .getCast(this.props.match.params.movieId);
   }
 
   // Be careful ! You have to pass as property to Movie, an element from store,
   // otherwise your component won't be updated when state changes
   render() {
-
     return (this.props.movie && this.props.cast)
       ? <Movie movie={this.props.movie} cast={this.props.cast}/>
       : null;
@@ -34,8 +33,7 @@ class MovieContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     movie: state.movie[ownProps.match.params.movieId],
-    cast: state.cast[ownProps.match.params.movieId],
-    dummy: 'pop'
+    cast: state.cast[ownProps.match.params.movieId]
   }
 }
 
