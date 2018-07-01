@@ -1,8 +1,21 @@
 {
-  "extends": [
-    "react-app"
-  ],
-  "rules": {
-    "jsx-a11y/href-no-hash": [0]
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "settings": {
+        "react": {
+          "createClass": "createReactClass",
+          "pragma": "React", 
+          "version": "15.0", 
+          "flowVersion": "0.53" 
+        },
+        "propWrapperFunctions": [ "forbidExtraProps" ]
+      },
+      "plugins": [
+        "react"
+      ],
+      "parser": "babel-eslint",
+      "parserOptions": {
+        "ecmaFeatures": {
+          "jsx": true
+        }
+      }
   }
-}

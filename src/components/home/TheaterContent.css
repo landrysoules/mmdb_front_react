@@ -1,19 +1,24 @@
-.TheaterContent{
-  position: relative;
+.TheaterContent {
+	position: relative;
 }
 
-.description{
-  bottom:3em;
-  left:0;
-  position: absolute;
-  color: #fff;
-  text-shadow: 1px 1px 0 #000;
+.description {
+	bottom: 3em;
+	left: 0;
+	position: absolute;
+	color: #fff;
+	text-shadow: 1px 1px 0 #000;
 }
 
-.sticker-casting{
-  bottom: -280%;
-  left:0;
-  position: absolute;
-  color: #fff;
-  text-shadow: 1px 1px 0 #000;
+.sticker-casting {
+	bottom: -280%;
+	left: 0;
+	position: absolute;
+	color: #fff;
+	text-shadow: 1px 1px 0 #000;
+}
+
+.no-space {
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
 }

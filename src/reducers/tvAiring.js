@@ -5,7 +5,8 @@ export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case TV_AIRING:
       return {
-        ...state
+        ...state,
+        loading: true
       };
     case TV_AIRING_SUCCESS:
       return {
@@ -16,13 +17,15 @@ export default function (state = INITIAL_STATE, action) {
           .results
           .map(rec => {
             return rec.id
-          })
+          }),
+        loading: false
       };
     case TV_AIRING_FAIL:
       return {
         ...state,
         ids: {
-          error: action.error
+          error: action.error,
+          loading: false
         }
       };
 
