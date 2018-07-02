@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import TVContent from './TVContent';
+import { renderComponent } from 'recompose';
+
+render(){
+
+}
 
 const mapStateToProps = state => {
-  return {
-    airingSeries: state.airingSeries
-    // Here we use reselect to get a sublist of the 3 first movies, instead of the whole list returned by the API call
-    // airingMovies: getMainAiringMovies(state)
-  };
+  return { airingTVs: state.tvAiring, tvs: state.tv, cast: state.cast };
 };
+const TVContainer = connect(mapStateToProps)(TVContainer);
 
-const SeriesContainer = connect(mapStateToProps)(TVContent);
-
-export default SeriesContainer;
+export default TVContainer;

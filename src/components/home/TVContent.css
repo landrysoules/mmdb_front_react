@@ -1,8 +1,8 @@
-.TheaterContent {
+.MovieContent {
 	position: relative;
 }
 
-.description {
+.description-tv {
 	bottom: 3em;
 	left: 0;
 	position: absolute;

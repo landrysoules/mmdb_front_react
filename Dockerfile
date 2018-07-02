@@ -6,6 +6,7 @@ FROM node:10.1.0 as node
 RUN mkdir /mmdb
 
 COPY package.json /mmdb/
+COPY .env.production /mmdb/
 COPY public/ /mmdb/public/
 COPY src/ /mmdb/src/
 
@@ -16,4 +17,10 @@ WORKDIR /mmdb
 RUN yarn install
 
 #Build the app
-RUN npm run build
+RUN yarn build
+
+RUN yarn global add serve
+
+EXPOSE 5000
+
+CMD serve -s build

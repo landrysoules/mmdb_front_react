@@ -1,65 +1,64 @@
 import React from 'react';
-import './TheaterContent.css';
-import {IMAGE_PATH, IMAGE_SMALL_PATH} from '../../constants/paths';
+import './TVContent.css';
+import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../constants/paths';
+import TVSticker from './TVSticker';
 
-const TVContent = ({airingSeries}) => {
-  const seriesList = airingSeries => {
-    if (airingSeries.series.results.length === 0) {
-      return null;
-    }
-    return (
-      <div>
-        <div className="row">
-          <div className="col-md-5"/>
-          <div className="col-md-7">
-            <h2>On TV</h2>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-5"/>
-          <div className="col-md-7">
-            <span className="TheaterContent">
-              <img
-                alt={airingSeries.series.results[1].name}
-                src={`${IMAGE_SMALL_PATH}${airingSeries.series.results[1].backdrop_path}`}/>
-              <span className="description">
-                {airingSeries.series.results[1].name}
-              </span>
-            </span>
-            <span className="TheaterContent">
-              <img
-                alt={airingSeries.series.results[2].name}
-                src={`${IMAGE_SMALL_PATH}${airingSeries.series.results[2].backdrop_path}`}/>
-              <span className="description">
-                {airingSeries.series.results[2].name}
-              </span>
-            </span>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-5"/>
-          <div className="col-md-7">
-            <div className="TheaterContent">
-              <img
-                alt={airingSeries.series.results[0].name}
-                src={`${IMAGE_PATH}${airingSeries.series.results[0].backdrop_path}`}/>
-              <span className="description">
-                {airingSeries.series.results[0].name}
-              </span>
-              {/* <ul>
-            {airingSeries.series.results[0].casting.data.cast.map(function(
-              movie
-            ) {
-              return <li key={movie.id}>{movie.name}</li>;
-            })}
-          </ul> */}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-  return seriesList(airingSeries);
+const TVContent = ({ airingSeries, tvs, cast }) => {
+	const tvList = airingSeries => {
+		if (!airingSeries) {
+			return null;
+		}
+		if (!tvs) return null;
+		if (!airingSeries.ids) {
+			return null;
+		}
+		if (!tvs[airingSeries.ids[2]]) {
+			return null;
+		}
+		if (!tvs[airingSeries.ids[1]]) {
+			return null;
+		}
+		if (!tvs[airingSeries.ids[0]]) {
+			return null;
+		}
+		const airingTeevees = airingSeries.ids.map(id => {
+			return tvs[id];
+		});
+		return (
+			<div>
+				{' '}
+				<div className="row">
+					{' '}
+					<div className="col-md-12">
+						{' '}
+						<h2> On TV </h2>{' '}
+					</div>{' '}
+				</div>{' '}
+				<div className="row">
+					<div className="col-md-12">
+						<tvsticker
+							movie={airingTeevees[1]}
+							imagePath={IMAGE_SMALL_PATH}
+							cast={cast[airingTeevees[1].id]}
+						/>{' '}
+						<tvsticker
+							movie={airingTeevees[2]}
+							imagePath={IMAGE_SMALL_PATH}
+							cast={cast[airingTeevees[2].id]}
+						/>{' '}
+					</div>{' '}
+				</div>{' '}
+				<div className="row">
+					{' '}
+					<div className="col-md-12">
+						{' '}
+						<TVSticker tv={airingTeevees[0]} imagePath={IMAGE_PATH} cast={cast[airingTeevees[0].id]} />{' '}
+					</div>{' '}
+				</div>{' '}
+			</div>
+		);
+	};
+	return tvList(airingSeries);
 };
 
 export default TVContent;
