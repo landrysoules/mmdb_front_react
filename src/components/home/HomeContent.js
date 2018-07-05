@@ -1,7 +1,7 @@
 import React from 'react';
-import TheaterContainer from './TheaterContainer';
+import TheaterContainer from './theater/TheaterContainer';
 import './HomeContent.css';
-import TVHomeContainer from './TVHomeContainer';
+import TVHomeContainer from './tv/TVHomeContainer';
 
 const HomeContent = () => (
 	<div>

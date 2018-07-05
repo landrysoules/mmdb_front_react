@@ -1,7 +1,7 @@
 import React from 'react';
 import TVSticker from './TVSticker';
 // import PropTypes from 'prop-types';
-import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../constants/paths';
+import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../../constants/paths';
 import './TVContent.css';
 
 // FIXME: Replace cast with next airing date
