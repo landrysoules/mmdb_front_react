@@ -1,6 +1,6 @@
 import React from 'react';
 import './TheaterContent.css';
-import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../constants/paths';
+import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../../constants/paths';
 import MovieSticker from './MovieSticker';
 
 // FIXME: Simplify this as what's been done in TVHome
