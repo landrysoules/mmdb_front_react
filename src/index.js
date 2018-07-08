@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { applyMiddleware, compose } from 'redux';
 import mmdbApp from './reducers';
 import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';

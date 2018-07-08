@@ -8,6 +8,7 @@ const TopBilledCastContainer = (props) => {
 		if (props.cast[i]) {
 			return <TopBilledCast cast={props.cast[i]} key={i} />;
 		}
+		return null;
 	});
 
 	return (
