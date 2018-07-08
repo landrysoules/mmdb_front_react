@@ -6,7 +6,7 @@ import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import TopBilledCastContainer from '../cast/TopBilledCastContainer';
 import { TV_CAST_TYPE } from '../../constants/global';
-// import CrewContainer from '../crew/CrewContainer';
+import CrewContainer from '../crew/CrewContainer';
 
 const TV = (props) => {
 	return (
@@ -55,8 +55,8 @@ const TV = (props) => {
 											/>
 										</span>
 									</div>
-									<h3> Overview</h3> <div> {props.tv.overview}</div> <h3> Featured Crew</h3>
-									{/* <CrewContainer tvId={tv.id} /> */}
+									<h3> Overview</h3> <div> {props.tv.overview}</div>
+									<CrewContainer id={props.tv.id} type={TV_CAST_TYPE} />
 								</div>
 								<div className="col-md-4" />
 							</div>

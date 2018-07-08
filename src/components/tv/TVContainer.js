@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TV from './TV';
 import { getTv } from '../../actions/tv';
-import { getCast } from '../../actions/cast';
 
 class TVContainer extends Component {
 	componentDidMount() {
 		this.props.getTv(this.props.match.params.showId);
-		// this.props.getCredits(this.props.match.params.showId);
 	}
 
 	render() {
@@ -28,10 +26,6 @@ const mapDispatchToProps = (dispatch) => {
 		getTv: (showId) => {
 			dispatch(getTv(showId));
 		}
-		// ,
-		// getCredits: (showId) => {
-		// 	dispatch(getCast(showId));
-		// }
 	};
 };
 

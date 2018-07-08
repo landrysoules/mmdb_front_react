@@ -57,8 +57,8 @@ const Movie = (moovie, cast) => {
 												/>
 											</span>
 										</div>
-										<h3> Overview</h3> <div> {movie.overview}</div> <h3> Featured Crew</h3>
-										<CrewContainer movieId={movie.id} />
+										<h3> Overview</h3> <div> {movie.overview}</div>
+										<CrewContainer id={movie.id} type={MOVIE_CAST_TYPE} />
 									</div>
 									<div className="col-md-4" />
 								</div>
