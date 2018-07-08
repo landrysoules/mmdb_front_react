@@ -48,6 +48,9 @@
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-react": "7.9.1",
     "react-scripts": "1.1.4",
+    "reactotron-react-js": "^1.13.0",
+    "reactotron-redux": "^1.13.0",
+    "reactotron-redux-saga": "^1.13.0",
     "redux-mock-store": "^1.5.3"
   },
   "scripts": {

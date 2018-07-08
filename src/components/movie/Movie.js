@@ -6,6 +6,7 @@ import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import TopBilledCastContainer from '../cast/TopBilledCastContainer';
 import CrewContainer from '../crew/CrewContainer';
+import { MOVIE_CAST_TYPE } from '../../constants/global';
 
 const Movie = (moovie, cast) => {
 	if (moovie) {
@@ -35,49 +36,41 @@ const Movie = (moovie, cast) => {
             }
              `}
 					<div className="row">
-						{' '}
 						<div className="col-md-12 full-width">
-							{' '}
 							<div className="header large first lazyloaded custom_bg">
-								{' '}
 								<div className="row">
-									{' '}
-									<div className="col-md-2" />{' '}
+									<div className="col-md-2" />
 									<div className="col-md-2 poster">
-										{' '}
 										<img
 											src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + movie.poster_path}
 											alt={movie.title}
-										/>{' '}
-									</div>{' '}
+										/>
+									</div>
 									<div className="col-md-4 movie-block">
-										{' '}
-										<h2> {movie.title}</h2>{' '}
+										<h2> {movie.title}</h2>
 										<div className="percent-circle">
-											{' '}
 											<span>
-												{' '}
 												<CircularProgressbar
 													percentage={movie.vote_average * 10}
 													strokeWidth="10"
 													initialAnimation="true"
-												/>{' '}
-											</span>{' '}
-										</div>{' '}
-										<h3> Overview</h3> <div> {movie.overview}</div> <h3> Featured Crew</h3>{' '}
-										<CrewContainer movieId={movie.id} />{' '}
-									</div>{' '}
-									<div className="col-md-4" />{' '}
-								</div>{' '}
-							</div>{' '}
-						</div>{' '}
+												/>
+											</span>
+										</div>
+										<h3> Overview</h3> <div> {movie.overview}</div> <h3> Featured Crew</h3>
+										<CrewContainer movieId={movie.id} />
+									</div>
+									<div className="col-md-4" />
+								</div>
+							</div>
+						</div>
 					</div>
 				</Style>
 				<div className="row">
 					<div className="col-md-2" />
 					<div className="col-md-8">
 						<div className="row">
-							<TopBilledCastContainer movieId={movie.id} />
+							<TopBilledCastContainer id={movie.id} type={MOVIE_CAST_TYPE} />
 						</div>
 					</div>
 					<div className="col-md-2" />

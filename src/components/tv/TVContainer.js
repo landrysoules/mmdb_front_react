@@ -7,29 +7,31 @@ import { getCast } from '../../actions/cast';
 class TVContainer extends Component {
 	componentDidMount() {
 		this.props.getTv(this.props.match.params.showId);
-		this.props.getCast(this.props.match.params.showId);
+		// this.props.getCredits(this.props.match.params.showId);
 	}
 
 	render() {
-		return this.props.tv && this.props.cast ? <TV {...this.props.tv} {...this.props.cast} /> : null;
+		// TODO: Try and understand how this props passing works !
+		return this.props.tv && this.props.cast ? <TV tv={this.props.tv} cast={this.props.cast} /> : null;
 	}
 }
 
 const mapStateToProps = (state, ownProps) => {
 	return {
 		tv: state.tv[ownProps.match.params.showId],
-		cast: state.cast[ownProps.match.params.showId]
+		cast: state.credits[ownProps.match.params.showId]
 	};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-		getTv: (tvId) => {
-			dispatch(getTv(tvId));
-		},
-		getCast: (tvId) => {
-			dispatch(getCast(tvId));
+		getTv: (showId) => {
+			dispatch(getTv(showId));
 		}
+		// ,
+		// getCredits: (showId) => {
+		// 	dispatch(getCast(showId));
+		// }
 	};
 };
 

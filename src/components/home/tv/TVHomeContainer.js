@@ -7,7 +7,7 @@ const TVHomeContainer = (state) => {
 	//   //FIXME: ne pas afficher tant que les tvs ne sont pas charges. Quand c'est ok, c'est les tvs qu'on envoie a TVHome, et non pas airingTvs
 	//   return <TVHome airingTVs={state.airingTVs.ids} cast={state.cast}/>;
 	// }
-	if (state.airingTVs.loading || state.cast.loading) {
+	if (state.airingTVs.loading || state.credits.loading) {
 		return null;
 	}
 	const topAiringTVids = state.airingTVs.ids.slice(0, 3);
@@ -17,7 +17,7 @@ const TVHomeContainer = (state) => {
 		if (state.tv[id]) {
 			topAiringTVs.push(state.tv[id]);
 		}
-		if (!state.cast[id]) {
+		if (!state.credits[id]) {
 			return null;
 		}
 	}
@@ -25,13 +25,13 @@ const TVHomeContainer = (state) => {
 		return null;
 	}
 
-	return <TVHome airingTVs={topAiringTVs} cast={state.cast} />;
+	return <TVHome airingTVs={topAiringTVs} credits={state.credits} />;
 };
 
 // const checkState = (state) => {};
 
 const mapStateToProps = (state) => {
-	return { airingTVs: state.tvAiring, cast: state.cast, tv: state.tv };
+	return { airingTVs: state.tvAiring, credits: state.credits, tv: state.tv };
 };
 
 export default connect(mapStateToProps)(TVHomeContainer);
