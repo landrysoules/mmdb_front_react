@@ -18,3 +18,6 @@ export const TV_FAIL = 'TV_FAIL';
 export const CAST = 'CAST';
 export const CAST_SUCCESS = 'CAST_SUCCESS';
 export const CAST_FAIL = 'CAST_FAIL';
+export const CREDITS = 'CREDITS';
+export const CREDITS_SUCCESS = 'CREDITS_SUCCESS';
+export const CREDITS_FAIL = 'CREDITS_FAIL';

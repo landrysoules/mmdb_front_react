@@ -4,10 +4,11 @@ import './tv.css';
 import Style from 'style-it';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-// import TopBilledCastContainer from '../cast/TopBilledCastContainer';
+import TopBilledCastContainer from '../cast/TopBilledCastContainer';
+import { TV_CAST_TYPE } from '../../constants/global';
 // import CrewContainer from '../crew/CrewContainer';
 
-const TV = (tv, cast) => {
+const TV = (props) => {
 	return (
 		<div>
 			<Style>
@@ -24,7 +25,7 @@ const TV = (tv, cast) => {
               background-size: cover;
               background-repeat: no-repeat;
               background-position: 50% 50%;
-              background-image: url("https://image.tmdb.org/t/p/w1400_and_h450_face${tv.backdrop_path}");
+              background-image: url("https://image.tmdb.org/t/p/w1400_and_h450_face${props.tv.backdrop_path}");
               will-change: opacity;
               transition: filter 1s;
             }
@@ -39,22 +40,22 @@ const TV = (tv, cast) => {
 								<div className="col-md-2" />
 								<div className="col-md-2 poster">
 									<img
-										src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + tv.poster_path}
-										alt={tv.title}
+										src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + props.tv.poster_path}
+										alt={props.tv.title}
 									/>
 								</div>
 								<div className="col-md-4 movie-block">
-									<h2> {tv.title}</h2>
+									<h2> {props.tv.title}</h2>
 									<div className="percent-circle">
 										<span>
 											<CircularProgressbar
-												percentage={tv.vote_average * 10}
+												percentage={props.tv.vote_average * 10}
 												strokeWidth="10"
 												initialAnimation="true"
 											/>
 										</span>
 									</div>
-									<h3> Overview</h3> <div> {tv.overview}</div> <h3> Featured Crew</h3>
+									<h3> Overview</h3> <div> {props.tv.overview}</div> <h3> Featured Crew</h3>
 									{/* <CrewContainer tvId={tv.id} /> */}
 								</div>
 								<div className="col-md-4" />
@@ -66,7 +67,9 @@ const TV = (tv, cast) => {
 			<div className="row">
 				<div className="col-md-2" />
 				<div className="col-md-8">
-					<div className="row">{/* <TopBilledCastContainer tvId={tv.id} /> */}</div>
+					<div className="row">
+						<TopBilledCastContainer id={props.tv.id} type={TV_CAST_TYPE} />
+					</div>
 				</div>
 				<div className="col-md-2" />
 			</div>

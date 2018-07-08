@@ -2,7 +2,7 @@ import React from 'react';
 import { IMAGE_PROFILE_PATH } from '../../constants/paths';
 import './TopBilledCast.css';
 
-const TopBilledCast = (cast) => {
+const TopBilledCast = (props) => {
 	return (
 		<div className="col-md-2">
 			<div className="panel panel-default panel-front">
@@ -14,13 +14,13 @@ const TopBilledCast = (cast) => {
 							alt="actor thumbnail"
 							width="183px"
 							height="237px"
-							src={`${IMAGE_PROFILE_PATH}/${cast.cast.profile_path}`}
+							src={`${IMAGE_PROFILE_PATH}/${props.cast.profile_path}`}
 						/>
 					</h4>
 				</div>
 				<div className="panel-body">
-					<strong>{cast.cast.name}</strong>
-					<div>{cast.cast.character}</div>
+					<strong>{props.cast.name}</strong>
+					<div>{props.cast.character}</div>
 				</div>
 			</div>
 		</div>
