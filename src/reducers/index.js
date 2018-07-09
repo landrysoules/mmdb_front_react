@@ -1,16 +1,11 @@
 import { combineReducers } from 'redux';
-import searchResults from './searchResults';
-import airingSeries from './airingSeries';
+import tvAiring from './tvAiring';
 import movieAiring from './movieAiring';
 import movie from './movie';
+import tv from './tv';
 import cast from './cast';
+import credits from './credits';
 
-const mmdbApp = combineReducers({
-  searchResults,
-  airingSeries,
-  movieAiring,
-  movie,
-    cast
-});
+const mmdbApp = combineReducers({ tvAiring, movieAiring, movie, cast, tv, credits });
 
 export default mmdbApp;

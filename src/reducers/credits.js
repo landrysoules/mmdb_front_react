@@ -1,19 +1,19 @@
-import { CAST, CAST_SUCCESS, CAST_FAIL } from '../constants/action-types';
+import { CREDITS, CREDITS_SUCCESS, CREDITS_FAIL } from '../constants/action-types';
 
 const INITIAL_STATE = {};
 
 export default function(state = INITIAL_STATE, action) {
 	switch (action.type) {
-		case CAST:
+		case CREDITS:
 			return {
 				...state
 			};
-		case CAST_SUCCESS:
+		case CREDITS_SUCCESS:
 			return {
 				...state,
 				[action.payload.data.id]: action.payload.data
 			};
-		case CAST_FAIL:
+		case CREDITS_FAIL:
 			return {
 				...state,
 				error: action.error

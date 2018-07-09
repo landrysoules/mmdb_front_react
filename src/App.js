@@ -8,7 +8,7 @@ import faTv from '@fortawesome/fontawesome-free-solid/faTv';
 import faSearch from '@fortawesome/fontawesome-free-solid/faSearch';
 
 class App extends Component {
-  componentWillMount() {
+  componentDidMount() {
     fontawesome
       .library
       .add(faFilm, faTv, faSearch);
