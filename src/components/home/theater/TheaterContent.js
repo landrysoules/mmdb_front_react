@@ -36,26 +36,26 @@ const TheaterContent = ({ airingMovies, movies, cast }) => {
 				<div className="row">
 					<div className="col-md-12 no-space">
 						<MovieSticker
+							cs="sticker main-sticker"
 							movie={airingMoovies[0]}
 							imagePath={IMAGE_PATH}
 							cast={cast[airingMoovies[0].id]}
-							width="492px"
 						/>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-md-12 no-space">
 						<MovieSticker
+							cs="sticker sticker-left"
 							movie={airingMoovies[1]}
 							imagePath={IMAGE_SMALL_PATH}
 							cast={cast[airingMoovies[1].id]}
-							width="246px"
 						/>
 						<MovieSticker
+							cs="sticker sticker-right"
 							movie={airingMoovies[2]}
 							imagePath={IMAGE_SMALL_PATH}
 							cast={cast[airingMoovies[2].id]}
-							width="246px"
 						/>
 					</div>
 				</div>
