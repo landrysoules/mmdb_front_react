@@ -1,5 +1,4 @@
 import React from 'react';
-import { ClipLoader } from 'react-spinners';
 import './Movie.css';
 import Style from 'style-it';
 import CircularProgressbar from 'react-circular-progressbar';
@@ -8,13 +7,11 @@ import TopBilledCastContainer from '../cast/TopBilledCastContainer';
 import CrewContainer from '../crew/CrewContainer';
 import { MOVIE_CAST_TYPE } from '../../constants/global';
 
-const Movie = (moovie, cast) => {
-	if (moovie) {
-		const movie = moovie.movie;
-		return (
-			<div>
-				<Style>
-					{` div.header.large.first:before {
+const Movie = ({ movie, cast }) => {
+	return (
+		<div>
+			<Style>
+				{` div.header.large.first:before {
               content: '';
               position: absolute;
               left: 0;
@@ -35,51 +32,48 @@ const Movie = (moovie, cast) => {
               filter: opacity(100) grayscale(100%) contrast(130%);
             }
              `}
-					<div className="row">
-						<div className="col-md-12 full-width">
-							<div className="header large first lazyloaded custom_bg">
-								<div className="row">
-									<div className="col-md-2" />
-									<div className="col-md-2 poster">
-										<img
-											src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + movie.poster_path}
-											alt={movie.title}
-										/>
-									</div>
-									<div className="col-md-4 movie-block">
-										<h2> {movie.title}</h2>
-										<div className="percent-circle">
-											<span>
-												<CircularProgressbar
-													percentage={movie.vote_average * 10}
-													strokeWidth="10"
-													initialAnimation="true"
-												/>
-											</span>
-										</div>
-										<h3> Overview</h3> <div> {movie.overview}</div>
-										<CrewContainer id={movie.id} type={MOVIE_CAST_TYPE} />
-									</div>
-									<div className="col-md-4" />
+				<div className="row">
+					<div className="col-md-12 full-width">
+						<div className="header large first lazyloaded custom_bg">
+							<div className="row">
+								<div className="col-md-2" />
+								<div className="col-md-2 poster">
+									<img
+										src={'https://image.tmdb.org/t/p/w300_and_h450_bestv2' + movie.poster_path}
+										alt={movie.title}
+									/>
 								</div>
+								<div className="col-md-4 movie-block">
+									<h2> {movie.title}</h2>
+									<div className="percent-circle">
+										<span>
+											<CircularProgressbar
+												percentage={movie.vote_average * 10}
+												strokeWidth="10"
+												initialAnimation="true"
+											/>
+										</span>
+									</div>
+									<h3> Overview</h3> <div> {movie.overview}</div>
+									<CrewContainer id={movie.id} type={MOVIE_CAST_TYPE} />
+								</div>
+								<div className="col-md-4" />
 							</div>
 						</div>
 					</div>
-				</Style>
-				<div className="row">
-					<div className="col-md-2" />
-					<div className="col-md-8">
-						<div className="row">
-							<TopBilledCastContainer id={movie.id} type={MOVIE_CAST_TYPE} />
-						</div>
-					</div>
-					<div className="col-md-2" />
 				</div>
+			</Style>
+			<div className="row">
+				<div className="col-md-2" />
+				<div className="col-md-8">
+					<div className="row">
+						<TopBilledCastContainer id={movie.id} type={MOVIE_CAST_TYPE} />
+					</div>
+				</div>
+				<div className="col-md-2" />
 			</div>
-		);
-	} else {
-		return <ClipLoader />;
-	}
+		</div>
+	);
 };
 
 export default Movie;

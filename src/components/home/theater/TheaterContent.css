@@ -1,19 +1,14 @@
-.TheaterContent {
-	position: relative;
-}
-
 .description {
-	bottom: 3em;
-	left: 0;
 	position: absolute;
+	bottom: 0;
 	color: #fff;
 	text-shadow: 1px 1px 0 #000;
+	padding-bottom: 20px;
 }
 
-.sticker-casting {
-	bottom: -280%;
-	left: 0;
+.sticker-cast {
 	position: absolute;
+	bottom: 0;
 	color: #fff;
 	text-shadow: 1px 1px 0 #000;
 }
@@ -21,4 +16,25 @@
 .no-space {
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
+}
+
+.sticker {
+	display: inline-block;
+	background-size: cover;
+	margin-bottom: -5px;
+}
+
+.main-sticker {
+	width: 492px;
+	height: 277px;
+}
+
+.sticker-left {
+	width: 246px;
+	height: 140px;
+}
+
+.sticker-right {
+	width: 246px;
+	height: 140px;
 }
