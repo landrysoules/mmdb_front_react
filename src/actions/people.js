@@ -5,7 +5,7 @@ export function peopleDetails(id) {
 		type: PEOPLE_DETAILS,
 		payload: {
 			request: {
-				url: `/people/${id}`,
+				url: `/person/${id}`,
 				params: {
 					api_key: process.env.REACT_APP_API_KEY
 				}

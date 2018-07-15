@@ -2,11 +2,12 @@ import React from 'react';
 import TopBilledCast from './TopBilledCast';
 import { connect } from 'react-redux';
 import { MOVIE_CAST_TYPE } from '../../constants/global';
+import { peopleDetails } from '../../actions/people';
 
 const TopBilledCastContainer = (props) => {
 	const casting = [ ...Array(5) ].map((_, i) => {
 		if (props.cast[i]) {
-			return <TopBilledCast cast={props.cast[i]} key={i} />;
+			return <TopBilledCast cast={props.cast[i]} details={props.peopleDetails} key={i} />;
 		}
 		return null;
 	});
@@ -34,4 +35,12 @@ const mapStateToProps = (state, ownProps) => {
 	}
 };
 
-export default connect(mapStateToProps)(TopBilledCastContainer);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		peopleDetails: (id) => {
+			dispatch(peopleDetails(id));
+		}
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TopBilledCastContainer);
