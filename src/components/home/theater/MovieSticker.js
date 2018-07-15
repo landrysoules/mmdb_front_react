@@ -1,23 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MovieSticker = ({ movie, imagePath, cast, width }) => {
+const MovieSticker = ({ movie, imagePath, cast, cs }) => {
 	const castElm = cast ? (
-		<span className="sticker-casting">
+		<div className="sticker-cast">
 			{cast.cast[0].name}, {cast.cast[1].name}
-		</span>
+		</div>
 	) : null;
-	const linkElm = movie ? (
-		<Link to={`/movie/${movie.id}`}>
-			<img alt={movie.title} src={`${imagePath}${movie.backdrop_path}`} width={width} />
-		</Link>
-	) : null;
+
 	return (
-		<span className="TheaterContent">
-			{linkElm}
-			<span className="description">{movie.title}</span>
-			{castElm}
-		</span>
+		<Link to={`/movie/${movie.id}`}>
+			<div
+				className={cs}
+				style={{
+					backgroundImage: 'url(' + imagePath + movie.backdrop_path + ')'
+				}}
+			>
+				<div className="description">{movie.title}</div>
+				{castElm}
+			</div>
+		</Link>
 	);
 };
 

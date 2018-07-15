@@ -1,11 +1,11 @@
 import React from 'react';
 import TVSticker from './TVSticker';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { IMAGE_PATH, IMAGE_SMALL_PATH } from '../../../constants/paths';
 import './TVContent.css';
 
 // FIXME: Replace cast with next airing date
-const TVHome = (props) => (
+const TVHome = ({ airingTVs, credits }) => (
 	<div className="row">
 		<div className="col-md-3" />
 		<div className="row">
@@ -16,35 +16,35 @@ const TVHome = (props) => (
 		<div className="row">
 			<div className="col-md-12 no-space">
 				<TVSticker
-					tv={props.airingTVs[1]}
+					cs="sticker sticker-left"
+					tv={airingTVs[1]}
 					imagePath={IMAGE_SMALL_PATH}
-					cast={props.credits[props.airingTVs[1].id]}
-					width="246px"
+					cast={credits[airingTVs[1].id]}
 				/>
 				<TVSticker
-					tv={props.airingTVs[2]}
+					cs="sticker sticker-right"
+					tv={airingTVs[2]}
 					imagePath={IMAGE_SMALL_PATH}
-					cast={props.credits[props.airingTVs[2].id]}
-					width="246px"
+					cast={credits[airingTVs[2].id]}
 				/>
 			</div>
 		</div>
 		<div className="row">
 			<div className="col-md-12 no-space">
 				<TVSticker
-					tv={props.airingTVs[0]}
+					cs="sticker main-sticker"
+					tv={airingTVs[0]}
 					imagePath={IMAGE_PATH}
-					cast={props.credits[props.airingTVs[0].id]}
-					width="492px"
+					cast={credits[airingTVs[0].id]}
 				/>
 			</div>
 		</div>
 	</div>
 );
 
-// TVHome.propTypes = {   airingTVs: PropTypes .arrayOf(PropTypes.object({id:
-// PropTypes.number.isRequired}).isRequired) .isRequired,   cast: PropTypes
-// .arrayOf(PropTypes.object({id: PropTypes.number.isRequired}).isRequired)
-// .isRequired }
+TVHome.propTypes = {
+	airingTVs: PropTypes.array,
+	credits: PropTypes.object
+};
 
 export default TVHome;
