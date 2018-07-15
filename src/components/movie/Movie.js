@@ -1,5 +1,4 @@
 import React from 'react';
-import { ClipLoader } from 'react-spinners';
 import './Movie.css';
 import Style from 'style-it';
 import CircularProgressbar from 'react-circular-progressbar';
