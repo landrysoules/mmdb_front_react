@@ -37,7 +37,8 @@
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^3.0.1",
-    "style-it": "^2.0.0"
+    "style-it": "^2.0.0",
+    "why-did-you-update": "^0.1.1"
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",

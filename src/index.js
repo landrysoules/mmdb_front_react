@@ -44,6 +44,11 @@ let store = Reactotron.createStore(
 	)
 );
 
+// if (process.env.NODE_ENV !== 'production') {
+// 	const { whyDidYouUpdate } = require('why-did-you-update');
+// 	whyDidYouUpdate(React);
+// }
+
 sagaMiddleware.run(movieSaga);
 sagaMiddleware.run(tvSaga);
 sagaMiddleware.run(castSaga);

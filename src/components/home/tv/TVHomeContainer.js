@@ -2,22 +2,22 @@ import { connect } from 'react-redux';
 import React from 'react';
 import TVHome from './TVHome';
 
-const TVHomeContainer = (state) => {
+const TVHomeContainer = (props) => {
 	// if ((state.airingTVs.loading === false) && (state.cast.loading === false) && (state.cast[state.airingTVs.ids[0]]) && (state.cast[state.airingTVs.ids[1]]) && (state.cast[state.airingTVs.ids[2]])) {
 	//   //FIXME: ne pas afficher tant que les tvs ne sont pas charges. Quand c'est ok, c'est les tvs qu'on envoie a TVHome, et non pas airingTvs
 	//   return <TVHome airingTVs={state.airingTVs.ids} cast={state.cast}/>;
 	// }
-	if (state.airingTVs.loading || state.credits.loading) {
+	if (props.airingTVs.loading || props.credits.loading) {
 		return null;
 	}
-	const topAiringTVids = state.airingTVs.ids.slice(0, 3);
+	const topAiringTVids = props.airingTVs.ids.slice(0, 3);
 	const topAiringTVs = [];
 
 	for (const id of topAiringTVids) {
-		if (state.tv[id]) {
-			topAiringTVs.push(state.tv[id]);
+		if (props.tv[id]) {
+			topAiringTVs.push(props.tv[id]);
 		}
-		if (!state.credits[id]) {
+		if (!props.credits[id]) {
 			return null;
 		}
 	}
@@ -25,7 +25,7 @@ const TVHomeContainer = (state) => {
 		return null;
 	}
 
-	return <TVHome airingTVs={topAiringTVs} credits={state.credits} />;
+	return <TVHome airingTVs={topAiringTVs} credits={props.credits} />;
 };
 
 // const checkState = (state) => {};
