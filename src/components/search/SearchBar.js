@@ -55,17 +55,41 @@ class SearchBar extends Component {
 				this.props.displayTV(value.id);
 				this.props.history.push(`/tv/${value.id}`);
 				this.setState({ value: '' });
+			} else {
+				if (value.media_type === 'person') {
+					this.props.displayPerson(value.id);
+					this.props.history.push(`/person/${value.id}`);
+					this.setState({ value: '' });
+				}
 			}
 		}
 	}
 
 	renderOption(option) {
-		const mediaName = option.media_type === 'movie' ? option.original_title : option.original_name;
+		let mediaName;
+		let icon;
+		switch (option.media_type) {
+			case 'movie': {
+				mediaName = option.original_title;
+				icon = 'film';
+				break;
+			}
+			case 'tv': {
+				mediaName = option.original_name;
+				icon = 'tv';
+				break;
+			}
+			case 'person': {
+				mediaName = option.name;
+				icon = 'user';
+				break;
+			}
+		}
 		return (
 			<div>
 				<span>{mediaName}</span>
 				<span className="movie-type">
-					<FontAwesomeIcon icon={option.media_type === 'movie' ? 'film' : 'tv'} />
+					<FontAwesomeIcon icon={icon} />
 				</span>
 			</div>
 		);
@@ -84,8 +108,9 @@ class SearchBar extends Component {
 		// to add persons and all other media_types To disable filtering, juste return
 		// options
 		return options.filter((option) => {
-			return option.media_type === 'movie' || option.media_type === 'tv';
+			return option.media_type === 'movie' || option.media_type === 'tv' || option.media_type === 'person';
 		});
+		// return options;
 	}
 
 	render() {

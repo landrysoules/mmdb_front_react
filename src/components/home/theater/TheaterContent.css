@@ -1,14 +1,12 @@
 .description {
-	position: absolute;
-	bottom: 0;
 	color: #fff;
 	text-shadow: 1px 1px 0 #000;
-	padding-bottom: 20px;
+	padding-left: 15px;
+	/* padding-bottom: 10px; */
 }
 
 .sticker-cast {
-	position: absolute;
-	bottom: 0;
+	padding-left: 15px;
 	color: #fff;
 	text-shadow: 1px 1px 0 #000;
 }
@@ -20,6 +18,7 @@
 
 .sticker {
 	display: inline-block;
+
 	background-size: cover;
 	margin-bottom: -6px;
 }
