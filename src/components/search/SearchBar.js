@@ -69,21 +69,23 @@ class SearchBar extends Component {
 		let mediaName;
 		let icon;
 		switch (option.media_type) {
-			case 'movie': {
+			case 'movie':
 				mediaName = option.original_title;
 				icon = 'film';
 				break;
-			}
-			case 'tv': {
+
+			case 'tv':
 				mediaName = option.original_name;
 				icon = 'tv';
 				break;
-			}
-			case 'person': {
+
+			case 'person':
 				mediaName = option.name;
 				icon = 'user';
 				break;
-			}
+
+			default:
+				break;
 		}
 		return (
 			<div>

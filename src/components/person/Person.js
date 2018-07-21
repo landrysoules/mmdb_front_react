@@ -10,7 +10,7 @@ const Person = ({ personData }) => {
 					width="302px"
 					height="453px"
 					src={`${IMAGE_PROFILE_PATH_ORIGINAL}/${personData.profile_path}`}
-					alt="person's profile picture"
+					alt="person's profile"
 				/>
 			</div>
 			<div className="col-md-6">

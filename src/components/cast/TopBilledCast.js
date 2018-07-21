@@ -2,10 +2,6 @@ import React from 'react';
 import { IMAGE_PROFILE_PATH } from '../../constants/paths';
 import './TopBilledCast.css';
 
-const showPerson = () => {
-	console.debug('Called showPerson');
-};
-
 const TopBilledCast = ({ cast, details }) => {
 	return (
 		<div className="col-md-2">
