@@ -1,6 +1,8 @@
 import React from 'react';
 import { IMAGE_PROFILE_PATH_ORIGINAL } from '../../constants/paths';
 
+import SocialLinksContainer from './social_links/SocialLinksContainer';
+
 const Person = ({ personData }) => {
 	return (
 		<div className="row">
@@ -17,7 +19,14 @@ const Person = ({ personData }) => {
 				<div className="row">
 					<div className="col-md-1" />
 					<div className="col-md-10">
-						<h1>{personData.name}</h1>
+						<span>
+							<h2>
+								{personData.name} <SocialLinksContainer id={personData.id} />
+							</h2>
+							{/* <h1>
+								{personData.name} <FontAwesomeIcon icon={[ 'fab', 'instagram' ]} />
+							</h1> */}
+						</span>
 						<h2>Biography</h2>
 						<p>{personData.biography}</p>
 					</div>

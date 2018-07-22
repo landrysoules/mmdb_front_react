@@ -6,7 +6,7 @@ const TopBilledCast = ({ cast, details }) => {
 	return (
 		<div className="col-md-2">
 			<div
-				className="panel panel-default panel-front"
+				className="panel panel-default panel-front action-link"
 				onClick={() => {
 					details(cast.id);
 				}}

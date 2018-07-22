@@ -5,12 +5,12 @@ import BottomPanel from './BottomPanel';
 import SearchBarContainer from '../search/SearchBarContainer';
 
 const DefaultLayout = () => (
-  <div className="container-fluid">
-    <TopBar/>
-    <SearchBarContainer/>
-    <ContentPanel/>
-    <BottomPanel/>
-  </div>
+	<div className="container-fluid">
+		<TopBar />
+		<SearchBarContainer />
+		<ContentPanel />
+		<BottomPanel />
+	</div>
 );
 
 export default DefaultLayout;

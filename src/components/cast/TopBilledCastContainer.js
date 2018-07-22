@@ -8,8 +8,6 @@ import { withRouter } from 'react-router-dom';
 class TopBilledCastContainer extends PureComponent {
 	constructor(props, context) {
 		super(props, context);
-		// It is the same thing, only difference is Component where we do the binding.
-		// Component is lower in the tree, and now button has the logic how to open the screen.
 		this.goToPeople = this.goToPeople.bind(this);
 	}
 	render() {
@@ -31,7 +29,6 @@ class TopBilledCastContainer extends PureComponent {
 	}
 
 	goToPeople(id) {
-		console.warn('********** Called goToPeople for id ' + id);
 		this.props.peopleDetails(id);
 		this.props.history.push(`/person/${id}`);
 	}
