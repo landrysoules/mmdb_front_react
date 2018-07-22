@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
     "enzyme": "^3.3.0",
+    "flow-bin": "^0.77.0",
     "global": "^4.3.2",
     "immutable": "^3.8.2",
     "normalizr": "^3.2.4",
@@ -60,6 +61,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "flow": "flow"
   }
 }

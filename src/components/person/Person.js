@@ -1,8 +1,9 @@
 import React from 'react';
 import { IMAGE_PROFILE_PATH_ORIGINAL } from '../../constants/paths';
+import PersonalInfo from './PersonalInfo';
 
 import SocialLinksContainer from './social_links/SocialLinksContainer';
-
+/* @flow */
 const Person = ({ personData }) => {
 	return (
 		<div className="row">
@@ -14,6 +15,7 @@ const Person = ({ personData }) => {
 					src={`${IMAGE_PROFILE_PATH_ORIGINAL}/${personData.profile_path}`}
 					alt="person's profile"
 				/>
+				<PersonalInfo data={personData} />
 			</div>
 			<div className="col-md-6">
 				<div className="row">
@@ -23,9 +25,6 @@ const Person = ({ personData }) => {
 							<h2>
 								{personData.name} <SocialLinksContainer id={personData.id} />
 							</h2>
-							{/* <h1>
-								{personData.name} <FontAwesomeIcon icon={[ 'fab', 'instagram' ]} />
-							</h1> */}
 						</span>
 						<h2>Biography</h2>
 						<p>{personData.biography}</p>

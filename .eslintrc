@@ -1,21 +1,27 @@
 {
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "settings": {
-        "react": {
-          "createClass": "createReactClass",
-          "pragma": "React", 
-          "version": "15.0", 
-          "flowVersion": "0.53" 
-        },
-        "propWrapperFunctions": [ "forbidExtraProps" ]
-      },
-      "plugins": [
-        "react"
-      ],
-      "parser": "babel-eslint",
-      "parserOptions": {
-        "ecmaFeatures": {
-          "jsx": true
-        }
-      }
+
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "settings": {
+    "react/prop-types": [0],
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "15.0",
+      "flowVersion": "0.53"
+
+    },
+    "propWrapperFunctions": ["forbidExtraProps"]
+  },
+  "plugins": [
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/prop-types": [0]
   }
+}
