@@ -1,6 +1,8 @@
 import React from 'react';
 import { IMAGE_PROFILE_PATH } from '../../constants/paths';
 import './TopBilledCast.css';
+import Img from 'react-image';
+import { ClipLoader } from 'react-spinners';
 
 const TopBilledCast = ({ cast, details }) => {
 	return (
@@ -13,12 +15,13 @@ const TopBilledCast = ({ cast, details }) => {
 			>
 				<div className="panel-heading">
 					<h4 className="panel-title">
-						<img
+						<Img
 							className="img-responsive"
 							alt="actor thumbnail"
 							width="183px"
 							height="237px"
 							src={`${IMAGE_PROFILE_PATH}/${cast.profile_path}`}
+							loader={<ClipLoader />}
 						/>
 					</h4>
 				</div>
