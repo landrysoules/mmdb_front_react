@@ -1,9 +1,11 @@
+/* @flow */
+
 import React from 'react';
 import { IMAGE_PROFILE_PATH_ORIGINAL } from '../../constants/paths';
 import PersonalInfo from './PersonalInfo';
 
 import SocialLinksContainer from './social_links/SocialLinksContainer';
-/* @flow */
+
 const Person = ({ personData }) => {
 	return (
 		<div className="row">

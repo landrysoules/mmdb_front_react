@@ -9,7 +9,7 @@ const PersonalInfo = ({ data }) => {
 			<h4>Known for</h4>
 			<div>{data.known_for_department}</div>
 			<h4>Gender</h4>
-			<div>{data.gender == 1 ? 'Female' : 'Male'}</div>
+			<div>{data.gender === 1 ? 'Female' : 'Male'}</div>
 			<h4>Birthday</h4>
 			<div>{data.birthday}</div>
 			<h4>Place of Birth</h4>
