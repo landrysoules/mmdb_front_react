@@ -18,6 +18,7 @@ import createSagaMiddleware from 'redux-saga';
 import { castSaga, movieSaga, tvSaga } from './sagas/sagas';
 import thunk from 'redux-thunk';
 import { getAiringTvs } from './actions/tv';
+import normalizeAxiosMiddleware from 'redux-normalize-axios-middleware';
 
 const client = axios.create({
 	//all axios can be used, shown in axios documentation
@@ -38,6 +39,7 @@ let store = Reactotron.createStore(
 		applyMiddleware(
 			thunk,
 			axiosMiddleware(client), //second parameter options can optionally contain onSuccess, onError, onComplete, successSuffix, errorSuffix. This middleware automatically calls state change (dispatch) when axios requests finish (success or failure)
+			normalizeAxiosMiddleware,
 			sagaMiddleware, // Careful here : if you declare saga before axios, your sagas won't be triggered !!
 			logger
 		)

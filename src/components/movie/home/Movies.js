@@ -1,6 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NotYet from '../../common/building/NotYet';
+import { getPopularMovies } from '../../../actions/movie';
+import { connect } from 'react-redux';
 
-const Movies = () => <NotYet />;
+export class Movies extends Component {
+	componentDidMount() {
+		this.props.getPopularMovies();
+	}
 
-export default Movies;
+	render = () => <NotYet />;
+}
+const mapDispatchToProps = (dispatch) => {
+	return {
+		getPopularMovies: () => {
+			dispatch(getPopularMovies());
+		}
+	};
+};
+
+export default connect(null, mapDispatchToProps)(Movies);

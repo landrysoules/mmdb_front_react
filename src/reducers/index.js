@@ -7,7 +7,18 @@ import cast from './cast';
 import credits from './credits';
 import people from './people';
 import socialLinks from './socialLinks';
+import moviesPopular from './moviesPopular';
 
-const mmdbApp = combineReducers({ tvAiring, movieAiring, movie, cast, tv, credits, people, socialLinks });
+const mmdbApp = combineReducers({
+	tvAiring,
+	movieAiring,
+	movie,
+	cast,
+	tv,
+	credits,
+	people,
+	socialLinks,
+	moviesPopular
+});
 
 export default mmdbApp;
