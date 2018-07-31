@@ -118,9 +118,10 @@ class SearchBar extends Component {
 	render() {
 		const AsyncComponent = this.state.creatable ? Select.AsyncCreatable : Select.Async;
 		const placeholder = (
-			<span>
+			<div>
 				<FontAwesomeIcon icon="search" />
-			</span>
+				<span style={{paddingLeft: "1.5em"}}>Search for a movie, TV show, actor...</span>
+			</div>
 		);
 
 		return (

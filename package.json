@@ -14,9 +14,12 @@
     "flow-bin": "^0.77.0",
     "global": "^4.3.2",
     "immutable": "^3.8.2",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
     "normalizr": "^3.2.4",
     "prettier": "^1.13.5",
     "prop-types": "^15.6.2",
+    "ramda": "^0.25.0",
     "react": "^16.4.1",
     "react-autocomplete": "^1.8.1",
     "react-autosuggest": "^9.3.4",
@@ -24,6 +27,7 @@
     "react-bootstrap-typeahead": "^3.1.4",
     "react-circular-progressbar": "^0.8.0",
     "react-dom": "^16.4.1",
+    "react-dotdotdot": "^1.2.3",
     "react-image": "^1.3.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
@@ -37,6 +41,7 @@
     "redux-axios-middleware": "^4.0.0",
     "redux-immutable": "^4.0.0",
     "redux-logger": "^3.0.6",
+    "redux-normalize-axios-middleware": "^1.1.5",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.3.0",
     "reselect": "^3.0.1",
@@ -45,6 +50,9 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.15.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "eslint": "4.19.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-loader": "2.0.0",
@@ -52,6 +60,7 @@
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-react": "7.9.1",
+    "react-cosmos": "^4.5.0",
     "react-scripts": "1.1.4",
     "reactotron-react-js": "^1.13.0",
     "reactotron-redux": "^1.13.0",
@@ -63,6 +72,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "cosmos": "cosmos",
+    "cosmos:export": "cosmos-export"
   }
 }

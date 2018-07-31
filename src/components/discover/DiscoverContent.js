@@ -1,5 +1,6 @@
 import React from 'react';
+import NotYet from '../common/building/NotYet';
 
-const DiscoverContent = () => <h1>Discover</h1>;
+const DiscoverContent = () => <NotYet />;
 
 export default DiscoverContent;

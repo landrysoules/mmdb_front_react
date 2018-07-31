@@ -20,13 +20,13 @@ class TopBar extends PureComponent {
 							<Link to="/discover">discover</Link>
 						</li>
 						<li>
-							<Link to="/discover">movies</Link>
+							<Link to="/movies">movies</Link>
 						</li>
 						<li>
-							<Link to="/discover">tv shows</Link>
+							<Link to="/tvs">tv shows</Link>
 						</li>
 						<li>
-							<Link to="/discover">people</Link>
+							<Link to="/people">people</Link>
 						</li>
 					</ul>
 				</div>
