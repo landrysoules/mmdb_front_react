@@ -18,7 +18,6 @@
 
 .sticker {
 	display: inline-block;
-
 	background-size: cover;
 	margin-bottom: -6px;
 }
@@ -34,6 +33,7 @@
 }
 
 .sticker-right {
+	position: absolute;
 	width: 246px;
 	height: 140px;
 }
